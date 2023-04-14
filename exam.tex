@@ -32,6 +32,7 @@
 
 \newcommand{\correct}[1]{\ifkey\color{red}\textbf{#1}\color{black}\else\textbf{#1}\fi\xspace}
 \newcommand{\answershort}[1]{\ifkey\color{red}\underline{\textbf{#1}}\color{black}\else\underline{\hspace{3in}}\fi\xspace}
+\newcommand{\answerlong}[1]{\ifkey\color{red}\textbf{#1}\color{black}\else\vspace{2in}\fi\xspace}
 
 % Commands for points
 \newtotcounter{points}
@@ -200,10 +201,46 @@ To get credit for this question, you must:
   \\ \correct{D}\hspace{0.2in}config files
 
 \item \pts{2}
+  Which of the following would make a good milestone in a software project
+  \\ \textbf{A}\hspace{0.2in} 50\% done
+  \\ \correct{B}\hspace{0.2in}
+  \\ \textbf{C}\hspace{0.2in} 
+  \\ \correct{D}\hspace{0.2in}
+  
+\item \pts{2}
   \textbf{TRUE} or \correct{FALSE}: continuous integration can only be used by DevOps teams
 
 \item \pts{2}
   When naming a method, it is a best practice to use a verb-like name if and only if the method has \answershort{side-effects}
+
+\item \pts{2}
+  A benefit of modern code review is that more than one person has seen each piece of code that is checked in. This benefit
+  reduces your team's \answershort{bus factor}
+
+\item \pts{2}
+  A tenet of the \textbf{Waterfall} / \correct{Agile} methodology is to always have a working prototype.
+  
+  \newpage
+
+  \textbf{Short answer.} Answer the questions in this section in at most two sentences.
+
+\item \pts{4} Consider the following code snippet: \\
+  \begin{lstlisting}
+    static double computeCircumference(double r) {
+      return 2 * 3.14 * r;
+    }
+  \end{lstlisting}
+
+  What are two code-level design improvements that you could make to this method? The two improvements cannot both be the same kind of change. \\
+  1. \answershort{replace 3.14 with a PI constant} \\
+  2. \answershort{rename ``r'' to ``radius'' or rename ``computeCircumference'' to ``circumference''}
+
+\item \pts{2} Select one of your answers to the previous question. Give a one-sentence justification for why your change
+  improves the method's code-level design.
+
+  \answerlong{For 1. above: ``avoid magic numbers'' or ``more self-documenting''. For 2. above: ``radius'' is more descriptive than ``r'', or ``compute'' is a verb, but the method returns a noun-like type.}
+
+
   
 %% \item What is the value of each expression using the provided
 %%   variables. Place a decimal point in your answer to indicate a double
