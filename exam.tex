@@ -1,4 +1,5 @@
-\documentclass{article}
+\RequirePackage{xcolor}
+\documentclass{report}
 % Change "article" to "report" to get rid of page number on title page
 % \usepackage{amsmath,amsfonts,amsthm,amssymb}
 \usepackage{setspace}
@@ -32,7 +33,7 @@
 
 \newcommand{\correct}[1]{\ifkey\color{red}\textbf{#1}\color{black}\else\textbf{#1}\fi\xspace}
 \newcommand{\answershort}[1]{\ifkey\color{red}\underline{\textbf{#1}}\color{black}\else\underline{\hspace{3in}}\fi\xspace}
-\newcommand{\answerlong}[1]{\ifkey\color{red}\textbf{#1}\color{black}\else\vspace{2in}\fi\xspace}
+\newcommand{\answerlong}[1]{\ifkey\color{red}\textbf{#1}\color{black}\else\vspace{0.5in}\fi\xspace}
 
 % Commands for points
 \newtotcounter{points}
@@ -201,11 +202,11 @@ To get credit for this question, you must:
   \\ \correct{D}\hspace{0.2in}config files
 
 \item \pts{2}
-  Which of the following would make a good milestone in a software project
-  \\ \textbf{A}\hspace{0.2in} 50\% done
-  \\ \correct{B}\hspace{0.2in}
-  \\ \textbf{C}\hspace{0.2in} 
-  \\ \correct{D}\hspace{0.2in}
+  Which of the following could make a good milestone in a software project? Circle all that apply.
+  \\ \textbf{A}\hspace{0.2in} the code is ``50\% done''
+  \\ \correct{B}\hspace{0.2in}a user story
+  \\ \textbf{C}\hspace{0.2in} the end of a particular sprint
+  \\ \correct{D}\hspace{0.2in}a particular test passes
   
 \item \pts{2}
   \textbf{TRUE} or \correct{FALSE}: continuous integration can only be used by DevOps teams
@@ -219,29 +220,113 @@ To get credit for this question, you must:
 
 \item \pts{2}
   A tenet of the \textbf{Waterfall} / \correct{Agile} methodology is to always have a working prototype.
+
+\item \pts{2}
+  The \textbf{Turing machine} and the \textbf{lambda calculus} are two alternative, equivalent formalizations of computability.
+  Match them with the programming paradigms they inspired: \\
+  Imperative: \answershort{Turing machine} \\
+  Functional: \answershort{lambda calculus}
+
+\item \pts{4} Give two advantages of static type systems over dynamic type systems and two advantages of dynamic type systems over
+  static type systems. \\
+  Advantages of static type systems: \answershort{early detection of errors},\\ \answershort{types are documentation} \\
+  Advantages of dynamic type systems: \answershort{faster prototyping},\\ \answershort{no false positives}
+
   
   \newpage
 
   \textbf{Short answer.} Answer the questions in this section in at most two sentences.
 
-\item \pts{4} Consider the following code snippet: \\
+\item Consider the following code snippet: \\
   \begin{lstlisting}
     static double computeCircumference(double r) {
       return 2 * 3.14 * r;
     }
   \end{lstlisting}
 
-  What are two code-level design improvements that you could make to this method? The two improvements cannot both be the same kind of change. \\
-  1. \answershort{replace 3.14 with a PI constant} \\
-  2. \answershort{rename ``r'' to ``radius'' or rename ``computeCircumference'' to ``circumference''}
+  What are two code-level design improvements that you could make to this method? The two improvements cannot both be the same kind of change.
+  \begin{enumerate}
+  \item \pts{2} \answershort{replace 3.14 with a PI constant} 
+  \item \pts{2} \answershort{rename ``r'' to ``radius'' or rename ``computeCircumference'' to ``circumference''}
 
-\item \pts{2} Select one of your answers to the previous question. Give a one-sentence justification for why your change
+  \item \pts{2} Select one of your answers to the previous question. Give a one-sentence justification for why your change
   improves the method's code-level design.
 
   \answerlong{For 1. above: ``avoid magic numbers'' or ``more self-documenting''. For 2. above: ``radius'' is more descriptive than ``r'', or ``compute'' is a verb, but the method returns a noun-like type.}
 
-
+  \end{enumerate}
   
+ \noindent Questions \ref{sl1} to \ref{el1} concern the following method:
+
+  \begin{lstlisting}
+    void foo(int x, int y, int z) {
+      if (x > 5) {
+        // STATEMENT 1
+      else if (y < 4 && x > 7) {
+        // STATEMENT 2
+      }
+      if (z < 6) {
+        // STATEMENT 3
+      } else {
+        // STATEMENT 4
+      }
+    }
+  \end{lstlisting}
+
+  Assume that the only statements we are interested in are \lstinline{STATEMENT 1} through \lstinline{STATEMENT 4}.
+
+  \item \label{sl1} \pts{2} Write a test suite suite with 50\% statement coverage. Express your answer as a list of tuples, e.g., ``(x = a, y = b, z = c), (x = d, y = e, z = f), etc.''. \\
+  \answerlong{(x = 6, y = 0, z = 3)}
+    
+  \item \pts{2} Is it possible to achieve 100\% statement coverage on this method? If so, provide a test suite that has 100\% statement coverage. If not, why not? \\
+    \answerlong{It is not possible, because STATEMENT 2 is unreachable.}
+
+  \item \label{el1} Consider the mutation operator ``< to <=''.
+    \begin{enumerate}
+    \item \pts{2} How many mutants can be produced by applying this mutation operator
+    to \lstinline$foo$?\\ \answershort{2}
+    \item \pts{2} What is the mutation score of a test suite containing only the following test input (assume that executing a different statement causes the mutant to be killed):
+    (x = 5, y = 2, z = 5)?\\ \answershort{0\%}
+    \item \pts{3} Is it possible to change one of x, y, or z in the test input in the previous part of the question to improve the mutation score?
+    If so, state which of x, y, and z to change, what its new value should be, and what the new mutation score is. If not, explain
+    why not. \\
+    \answerlong{z = 6 changes the mutation score to 50\%}
+    \item \pts{3} Is it possible to change one of x, y, or z in the test input in the previous part of the question to improve the mutation score?
+    If so, state which of x, y, and z to change, what its new value should be, and what the new mutation score is. If not, explain
+    why not. \\
+    \answerlong{It is not, because the second mutant is an equivalent mutant.}
+    \end{enumerate}
+
+    \newpage
+    \textbf{Document-based Questions.} All questions in this section refer to a documents \textbf{A-B}.
+    These documents appear at the end of the exam (I recommend that you tear them out and refer to them as you answer the questions).
+    Be sure that you have all of the documents listed.
+
+    \item \pts{2} What kind of document is \textbf{Document A}? \\ \answershort{postmortem}
+
+    \newpage
+
+    \textbf{Extra Credit}. Questions in this section do not count towards the denominator of the exam score.
+
+    \newpage
+
+    \textbf{Document A:}
+    
+      We’d like to give you some additional information about the service disruption that occurred in the Northern Virginia (US-EAST-1) Region on the morning of February 28th, 2017. The Amazon Simple Storage Service (S3) team was debugging an issue causing the S3 billing system to progress more slowly than expected. At 9:37AM PST, an authorized S3 team member using an established playbook executed a command which was intended to remove a small number of servers for one of the S3 subsystems that is used by the S3 billing process. Unfortunately, one of the inputs to the command was entered incorrectly and a larger set of servers was removed than intended. The servers that were inadvertently removed supported two other S3 subsystems.  One of these subsystems, the index subsystem, manages the metadata and location information of all S3 objects in the region. This subsystem is necessary to serve all GET, LIST, PUT, and DELETE requests. The second subsystem, the placement subsystem, manages allocation of new storage and requires the index subsystem to be functioning properly to correctly operate. The placement subsystem is used during PUT requests to allocate storage for new objects. Removing a significant portion of the capacity caused each of these systems to require a full restart. While these subsystems were being restarted, S3 was unable to service requests. Other AWS services in the US-EAST-1 Region that rely on S3 for storage, including the S3 console, Amazon Elastic Compute Cloud (EC2) new instance launches, Amazon Elastic Block Store (EBS) volumes (when data was needed from a S3 snapshot), and AWS Lambda were also impacted while the S3 APIs were unavailable.
+
+      S3 subsystems are designed to support the removal or failure of significant capacity with little or no customer impact. We build our systems with the assumption that things will occasionally fail, and we rely on the ability to remove and replace capacity as one of our core operational processes. While this is an operation that we have relied on to maintain our systems since the launch of S3, we have not completely restarted the index subsystem or the placement subsystem in our larger regions for many years. S3 has experienced massive growth over the last several years and the process of restarting these services and running the necessary safety checks to validate the integrity of the metadata took longer than expected. The index subsystem was the first of the two affected subsystems that needed to be restarted. By 12:26PM PST, the index subsystem had activated enough capacity to begin servicing S3 GET, LIST, and DELETE requests. By 1:18PM PST, the index subsystem was fully recovered and GET, LIST, and DELETE APIs were functioning normally.  The S3 PUT API also required the placement subsystem. The placement subsystem began recovery when the index subsystem was functional and finished recovery at 1:54PM PST. At this point, S3 was operating normally. Other AWS services that were impacted by this event began recovering. Some of these services had accumulated a backlog of work during the S3 disruption and required additional time to fully recover.
+
+%      We are making several changes as a result of this operational event. While removal of capacity is a key operational practice, in this instance, the tool used allowed too much capacity to be removed too quickly. We have modified this tool to remove capacity more slowly and added safeguards to prevent capacity from being removed when it will take any subsystem below its minimum required capacity level. This will prevent an incorrect input from triggering a similar event in the future. We are also auditing our other operational tools to ensure we have similar safety checks. We will also make changes to improve the recovery time of key S3 subsystems. We employ multiple techniques to allow our services to recover from any failure quickly. One of the most important involves breaking services into small partitions which we call cells. By factoring services into cells, engineering teams can assess and thoroughly test recovery processes of even the largest service or subsystem. As S3 has scaled, the team has done considerable work to refactor parts of the service into smaller cells to reduce blast radius and improve recovery. During this event, the recovery time of the index subsystem still took longer than we expected. The S3 team had planned further partitioning of the index subsystem later this year. We are reprioritizing that work to begin immediately.
+
+      From the beginning of this event until 11:37AM PST, we were unable to update the individual services’ status on the AWS Service Health Dashboard (SHD) because of a dependency the SHD administration console has on Amazon S3. Instead, we used the AWS Twitter feed (@AWSCloud) and SHD banner text to communicate status until we were able to update the individual services’ status on the SHD.  We understand that the SHD provides important visibility to our customers during operational events and we have changed the SHD administration console to run across multiple AWS regions.
+
+      Finally, we want to apologize for the impact this event caused for our customers. While we are proud of our long track record of availability with Amazon S3, we know how critical this service is to our customers, their applications and end users, and their businesses. We will do everything we can to learn from this event and use it to improve our availability even further.~
+    
+    
+    \newpage
+
+    \textbf{Document B:}
+    
 %% \item What is the value of each expression using the provided
 %%   variables. Place a decimal point in your answer to indicate a double
 %%   value (eg. 2.0).
