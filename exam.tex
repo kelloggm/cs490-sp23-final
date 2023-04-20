@@ -302,8 +302,33 @@ To get credit for this question, you must:
     These documents appear at the end of the exam (I recommend that you tear them out and refer to them as you answer the questions).
     Be sure that you have all of the documents listed.
 
+    \textbf{The following questions concern Document A.}
+    
     \item \pts{2} What kind of document is \textbf{Document A}? \\ \answershort{postmortem}
 
+    \item \pts{3} What was the root cause of the outage? Answer in the form of a quote
+      from the document.\\ \answerlong{``one of the inputs to the command was entered incorrectly''}
+
+    \item \pts{3} Does the document identify who was responsible for the outage? If so, give a quote
+      from the document identifying that the responsible party. If not, give a one-sentence explanation
+      for why not.\\
+      \answerlong{The document does not identify who was responsible, because this is a blameless postmortem:
+        it blames the system, rather than the individual. (Any answer with ``blameless'' or a synonym will probably be accepted.)}
+
+    \item \pts{3} The root cause of the incident only impacted a single service (S3 itself). Why was the ``blast radius''
+      of the incident (i.e., the number of impacted customers) so large?\\
+      \answerlong{Other services relied on S3, so a cascading failure caused them to fail, as well.}
+      
+    \item \pts{3} Describe one change to the tools used to remove capacity that the S3 team could adopt to prevent or mitigate
+      a similar outage in the future. \\
+      \answerlong{Either of the following two answers, which S3 itself gives in the full postmortem, is acceptable. Other
+        sensible answers may also get credit or partial credit. 1) modify the tool to remove capacity more slowly, or
+        2) add safeguards to prevent capacity from being removed when it will take any subsystem below its minimum required capacity level}
+
+    \item \pts{3} Describe another distinct change to the tools used to remove capacity that the S3 team could adopt to prevent
+      or mitiage a similar outage in the future. \\
+      \answerlong{See the previous question.}
+      
     \newpage
 
     \textbf{Extra Credit}. Questions in this section do not count towards the denominator of the exam score.
