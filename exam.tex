@@ -282,6 +282,26 @@ Contents (blanks for graders only):
      \\ Models: \hspace{0.75in} \textbf{0-1} \hspace{0.5in} \correct{exactly 1} \hspace{0.5in} \textbf{1 or more} \hspace{0.5in} \textbf{at least 2}
      \\ Views: \hspace{0.82in} \textbf{0-1} \hspace{0.5in} \textbf{exactly 1} \hspace{0.5in} \correct{1 or more} \hspace{0.5in} \textbf{at least 2}
      \\ Controllers: \hspace{0.51in} \textbf{0-1} \hspace{0.5in} \textbf{exactly 1} \hspace{0.5in} \correct{1 or more} \hspace{0.5in} \textbf{at least 2}
+
+   \item \pts{2} \textbf{TRUE} or \correct{FALSE}: because we have the singleton design pattern, global state is a good design choice
+
+   \item \pts{2} When a version control system like \lstinline{git} determines that two changes are conflict-free, which of the following
+     are possible for the merged code? Circle all that apply.
+     \\ \correct{A}\hspace{0.2in}compilation errors
+     \\ \textbf{B}\hspace{0.2in} multiple changes to the same line
+     \\ \correct{C}\hspace{0.2in}test failures
+
+   \item \pts{2} You are an engineer at UTube, a video-streaming platform. You're having trouble with a particularly difficult
+     programming problem, so you schedule a call with one of your coworkers. Together, you write the difficult code. This is
+     \answershort{pair programming}
+
+   \item \pts{2} Why is exhaustive testing not possible for most programs in practice? Answer in five words or fewer.
+     \answershort{Input space is too large.}
+
+   \item \pts{2} You are writing a compiler for your new language, Java++ (it's like Java, but with more classes!).
+     A user reports that a particular program doesn't compile correctly. You add that program to your test suite,
+     and then you start fixing the problem in your compiler. You are practicing
+     \\ \answershort{test-driven development}
      
   \newpage
 
@@ -466,6 +486,21 @@ def f(a, b, c) {
 }
   \end{lstlisting}
 
+\item \pts{4} You are a software engineer at Orange, a computer hardware company that also has a software division, since someone
+  needs to write the app store for your lead hardware product. You are responsible for replacing a microservice that is responsible
+  for determining how much money customers owe to various app store vendors at the end of each month; your service sends this information
+  to another service that actually sends the customer a bill. The legacy service exists but is very slow; your boss wants you to rewrite
+  it to improve its performance. However, your boss is also extremely concerned about correctness. Describe a low-cost strategy that you
+  could apply in this situation to ensure that your new service has the same behavior as the slow, legacy version. Answer in at most 3 sentences.
+  \\\answerlong{The correct thing to do here is to apply differential testing (aka ``tests for free''): log all traffic to the old service,
+    and check that the new service produces the same answers as the old one for each input for some period of time (until your boss is
+    satisfied, probably).}
+
+\item \pts{3} Support or refute the claim ``You cannot have continuous integration without hermetic builds.''
+  Answer in three sentences or fewer.\\
+  \answerlong{Likely support. Continuous integration does not work well without hermetic builds, because to test in CI you need to be able to build from
+    scratch.}
+  
     \newpage
     \textbf{IV. Document-based Questions (\dbqpts pts).} All questions in this section refer to a documents \textbf{A-B}.
     These documents appear at the end of the exam (I recommend that you tear them out and refer to them as you answer the questions).
