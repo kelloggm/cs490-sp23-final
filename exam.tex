@@ -28,7 +28,7 @@
 
 % Commands for answer key
 \newif\ifkey
-% \keytrue
+%\keytrue
 \keyfalse
 
 \newcommand{\correct}[1]{\ifkey\color{red}\textbf{#1}\color{black}\else\textbf{#1}\fi\xspace}
@@ -37,8 +37,8 @@
 \newcommand{\answervvshort}[1]{\ifkey\color{red}\underline{\textbf{#1}}\color{black}\else\underline{\hspace{0.5in}}\fi\xspace}
 \newcommand{\answerlong}[1]{\ifkey\color{red}\textbf{#1}\color{black}\else\vspace{0.5in}\fi\xspace}
 
-\newcommand{\vshortpts}{20}
-\newcommand{\shortpts}{35}
+\newcommand{\vshortpts}{24}
+\newcommand{\shortpts}{40}
 \newcommand{\dbqpts}{30}
 
 % Commands for points
@@ -87,6 +87,7 @@
 \begin{enumerate}[leftmargin=*]
 \item \pts{1} \textbf{Name:} \hrulefill
 
+\textbf{INSTRUCTIONS:}
 Carefully read each question, and write the answer in the space
 provided.  If answers to free response questions are written obscurely,
 zero credit will be awarded. The correct answer to a free response question
@@ -115,6 +116,7 @@ To get credit for this question, you must:
 
 Contents (blanks for graders only):
 \begin{tabular}{ll}
+\textbf{Writing your name on every page:} & \answervshort{1} / 1\\
 \textbf{I. Reading Quiz Redux:} & \answervshort{5} / 5\\
 \textbf{II. Very Short Answer:} & \answervshort{\vshortpts} / \vshortpts \\
 \textbf{III. Short Answer:} & \answervshort{\shortpts} / \shortpts \\
@@ -142,9 +144,9 @@ Contents (blanks for graders only):
   \textbf{Code-level Design:} Name an advantage of \texttt{black} over the other Python linters discussed in the Yelp whitepaper. (< 5 words)
   \\ \answershort{any of: opinionated; resolves errors automatically; consistency}
 
-\item \pts{1}
-  \textbf{Tech Debt, Part 1:} \textbf{TRUE} or \correct{FALSE}:
-  all technical debt is the result of programmer laziness.
+%% \item \pts{1}
+%%   \textbf{Tech Debt, Part 1:} \textbf{TRUE} or \correct{FALSE}:
+%%   all technical debt is the result of programmer laziness.
 
 \item \pts{1}
   \textbf{Tech Debt, Part 2:}
@@ -153,21 +155,21 @@ Contents (blanks for graders only):
   \\ \textbf{B}\hspace{0.2in} the halting problem
   \\ \textbf{C}\hspace{0.2in} given enough eyeballs, all bugs are shallow
 
-\item \pts{1}
-  \textbf{Requirements, Part 2:}
-  The author describes formal specifications as providing three main benefits. Which of the following is NOT one of those:
-  \\ \textbf{A}\hspace{0.2in} It provides clear documentation of the system requirements, behavior, and properties.
-  \\ \textbf{B}\hspace{0.2in} It clarifies your understanding of the system.
-  \\ \textbf{C}\hspace{0.2in} It finds really subtle, dangerous bugs.
-  \\ \correct{D}\hspace{0.2in}It makes writing the code quicker and easier.
+%% \item \pts{1}
+%%   \textbf{Requirements, Part 2:}
+%%   The author describes formal specifications as providing three main benefits. Which of the following is NOT one of those:
+%%   \\ \textbf{A}\hspace{0.2in} It provides clear documentation of the system requirements, behavior, and properties.
+%%   \\ \textbf{B}\hspace{0.2in} It clarifies your understanding of the system.
+%%   \\ \textbf{C}\hspace{0.2in} It finds really subtle, dangerous bugs.
+%%   \\ \correct{D}\hspace{0.2in}It makes writing the code quicker and easier.
 
-\item \pts{1}
-  \textbf{Free and Open Source Software:}
-  The author claims that the term “free software” means:
-  \\ \textbf{A}\hspace{0.2in} software you can get for zero price
-  \\ \correct{B}\hspace{0.2in}software which gives the user certain freedoms
-  \\ \textbf{C}\hspace{0.2in} software whose source code you can look at
-  \\ \textbf{D}\hspace{0.2in} none of the above
+%% \item \pts{1}
+%%   \textbf{Free and Open Source Software:}
+%%   The author claims that the term “free software” means:
+%%   \\ \textbf{A}\hspace{0.2in} software you can get for zero price
+%%   \\ \correct{B}\hspace{0.2in}software which gives the user certain freedoms
+%%   \\ \textbf{C}\hspace{0.2in} software whose source code you can look at
+%%   \\ \textbf{D}\hspace{0.2in} none of the above
 
 \item \pts{1}
   \textbf{Software Architecture, Part 1:}
@@ -176,20 +178,20 @@ Contents (blanks for graders only):
   \\ \textbf{B}\hspace{0.2in} a set of guidelines from an architecture book
   \\ \correct{C}\hspace{0.2in}the system’s quality requirements
 
-\item \pts{1}
-  \textbf{Static Analysis, Part 1:}
-  FindBugs \underline{\hspace{1in}}:
-  \\ \textbf{A}\hspace{0.2in} always warns about line X if it is possible there is a bug on line X
-  \\ \textbf{B}\hspace{0.2in} never warns about line X unless there is definitely a bug on line X
-  \\ \textbf{C}\hspace{0.2in} both A and B
-  \\ \correct{D}\hspace{0.2in}neither A nor B
+%% \item \pts{1}
+%%   \textbf{Static Analysis, Part 1:}
+%%   FindBugs \underline{\hspace{1in}}:
+%%   \\ \textbf{A}\hspace{0.2in} always warns about line X if it is possible there is a bug on line X
+%%   \\ \textbf{B}\hspace{0.2in} never warns about line X unless there is definitely a bug on line X
+%%   \\ \textbf{C}\hspace{0.2in} both A and B
+%%   \\ \correct{D}\hspace{0.2in}neither A nor B
 
-\item \pts{1}
-  \textbf{DevOps, Part 2:}
-  Which of the following does Dan Luu advocate for when making a high-risk change?
-  \\ \textbf{A}\hspace{0.2in} having multiple people watch or confirm the operation
-  \\ \textbf{B}\hspace{0.2in} having ops people standing by in case of disaster
-  \\ \correct{C}\hspace{0.2in}automating the change instead of letting a human do it
+%% \item \pts{1}
+%%   \textbf{DevOps, Part 2:}
+%%   Which of the following does Dan Luu advocate for when making a high-risk change?
+%%   \\ \textbf{A}\hspace{0.2in} having multiple people watch or confirm the operation
+%%   \\ \textbf{B}\hspace{0.2in} having ops people standing by in case of disaster
+%%   \\ \correct{C}\hspace{0.2in}automating the change instead of letting a human do it
  
 
   \newpage
@@ -197,31 +199,31 @@ Contents (blanks for graders only):
   \textbf{II. Multiple Choice and Very Short Answer (\vshortpts pts).} In the following section, either circle your
   answer (possible answers appear in \textbf{bold}) or write a very short (one word or one phrase) answer in the space provided.
 
-\item \pts{2} Google (and other big tech companies) design their hiring process
-  to avoid false \correct{positive} / \textbf{negative} results: that is, to avoid hiring unqualified candidates,
-  even if some good candidates are rejected.
+%% \item \pts{2} Google (and other big tech companies) design their hiring process
+%%   to avoid false \correct{positive} / \textbf{negative} results: that is, to avoid hiring unqualified candidates,
+%%   even if some good candidates are rejected.
 
 \item \pts{2} A \textbf{sound} / \correct{complete} program analysis always answers ``I don't know'' unless there
   is definitely a bug in the program being analyzed.
 
-\item \pts{2} A \correct{functional specification} / \textbf{quality requirement} is a description of what a system should do that doesn’t specify how the system should do it.
+%% \item \pts{2} A \correct{functional specification} / \textbf{quality requirement} is a description of what a system should do that doesn’t specify how the system should do it.
 
-\item \pts{2} Alice's deadline to deliver a feature is today. She finishes writing the feature and tests it on her local machine, but chooses not to write automated tests,
-  even though she knows that it is risky, because
-  she wants to meet her deadline. Alice has chosen to take on \answershort{technical debt}
+%% \item \pts{2} Alice's deadline to deliver a feature is today. She finishes writing the feature and tests it on her local machine, but chooses not to write automated tests,
+%%   even though she knows that it is risky, because
+%%   she wants to meet her deadline. Alice has chosen to take on \answershort{technical debt}
 
-\item \pts{2}
-  Which of the following is NOT a static analysis:
-  \\ \textbf{A}\hspace{0.2in} dataflow analysis
-  \\ \correct{B}\hspace{0.2in}testing
-  \\ \textbf{C}\hspace{0.2in} code review
+%% \item \pts{2}
+%%   Which of the following is NOT a static analysis:
+%%   \\ \textbf{A}\hspace{0.2in} dataflow analysis
+%%   \\ \correct{B}\hspace{0.2in}testing
+%%   \\ \textbf{C}\hspace{0.2in} code review
 
-\item \pts{2}
-  Which of the following is it best practice to commit to your version control system? Circle all that apply.
-  \\ \textbf{A}\hspace{0.2in} credentials
-  \\ \correct{B}\hspace{0.2in}code
-  \\ \textbf{C}\hspace{0.2in} binary files
-  \\ \correct{D}\hspace{0.2in}config files
+%% \item \pts{2}
+%%   Which of the following is it best practice to commit to your version control system? Circle all that apply.
+%%   \\ \textbf{A}\hspace{0.2in} credentials
+%%   \\ \correct{B}\hspace{0.2in}code
+%%   \\ \textbf{C}\hspace{0.2in} binary files
+%%   \\ \correct{D}\hspace{0.2in}config files
 
 \item \pts{2}
   Which of the following could make a good milestone in a software project? Circle all that apply.
@@ -237,18 +239,18 @@ Contents (blanks for graders only):
   \\ \correct{C}\hspace{0.2in}your niceness and personality
   \\ \textbf{D}\hspace{0.2in} how well you are dressed
   
-\item \pts{2}
-  \textbf{TRUE} or \correct{FALSE}: continuous integration can only be used by DevOps teams
+%% \item \pts{2}
+%%   \textbf{TRUE} or \correct{FALSE}: continuous integration can only be used by DevOps teams
 
 \item \pts{2}
   When naming a method, it is a best practice to use a verb-like name if and only if the method has \answershort{side-effects}
 
-\item \pts{2}
-  A benefit of modern code review is that more than one person has seen each piece of code that is checked in. This benefit
-  reduces your team's \answershort{bus factor}
+%% \item \pts{2}
+%%   A benefit of modern code review is that more than one person has seen each piece of code that is checked in. This benefit
+%%   reduces your team's \answershort{bus factor}
 
-\item \pts{2}
-  A tenet of the \textbf{Waterfall} / \correct{Agile} methodology is to always have a working prototype.
+%% \item \pts{2}
+%%   A tenet of the \textbf{Waterfall} / \correct{Agile} methodology is to always have a working prototype.
 
 \item \pts{2}
   The \textbf{Turing machine} and the \textbf{lambda calculus} are two alternative, equivalent formalizations of computability.
@@ -265,25 +267,25 @@ Contents (blanks for graders only):
     database query. When writing test cases, he substitutes a hard-coded string in place of the query. This is an example of
      \answershort{mocking}
 
-   \item \pts{2} \correct{TRUE} / \textbf{FALSE}: modern code review is based on an inductive argument for the quality of
-     software: if the previous version is good, and the change is good, then modern code review relies on the composition
-     of the previous version and the change being good.
+%%    \item \pts{2} \correct{TRUE} / \textbf{FALSE}: modern code review is based on an inductive argument for the quality of
+%%      software: if the previous version is good, and the change is good, then modern code review relies on the composition
+%%      of the previous version and the change being good.
 
-   \item \pts{2} You are a manager at MTa (pronounced ``meta''), a social media company for NYC Subway aficionados. One of your
-     employees would like to modify an open-source library that is licensed under the GNU Public License, version 2 (GPL v2). You veto
-     this decision, because the GPL v2 is a \answershort{copyleft} license: it would force you to release your modifications in
-     the open, too.
-
+%%    \item \pts{2} You are a manager at MTa (pronounced ``meta''), a social media company for NYC Subway aficionados. One of your
+%%      employees would like to modify an open-source library that is licensed under the GNU Public License, version 2 (GPL v2). You veto
+%%      this decision, because the GPL v2 is a \answershort{copyleft} license: it would force you to release your modifications in
+%%      the open, too.
+\newpage
    \item \pts{2} You are an engineer at Goggle, a tech-focused search company that helps its users find better eyewear. Your team
      has been tasked with developing a new microservice that will serve ads to people looking for sunglasses. You and your teammates
      gather around a whiteboard and draw a diagram of the new service's \answershort{architecture}
 
-   \item \pts{3} In a model-view-controller architecture, how many of each of the following can there be?
-     \\ Models: \hspace{0.75in} \textbf{0-1} \hspace{0.5in} \correct{exactly 1} \hspace{0.5in} \textbf{1 or more} \hspace{0.5in} \textbf{at least 2}
-     \\ Views: \hspace{0.82in} \textbf{0-1} \hspace{0.5in} \textbf{exactly 1} \hspace{0.5in} \correct{1 or more} \hspace{0.5in} \textbf{at least 2}
-     \\ Controllers: \hspace{0.51in} \textbf{0-1} \hspace{0.5in} \textbf{exactly 1} \hspace{0.5in} \correct{1 or more} \hspace{0.5in} \textbf{at least 2}
+%%    \item \pts{3} In a model-view-controller architecture, how many of each of the following can there be?
+%%      \\ Models: \hspace{0.75in} \textbf{0-1} \hspace{0.5in} \correct{exactly 1} \hspace{0.5in} \textbf{1 or more} \hspace{0.5in} \textbf{at least 2}
+%%      \\ Views: \hspace{0.82in} \textbf{0-1} \hspace{0.5in} \textbf{exactly 1} \hspace{0.5in} \correct{1 or more} \hspace{0.5in} \textbf{at least 2}
+%%      \\ Controllers: \hspace{0.51in} \textbf{0-1} \hspace{0.5in} \textbf{exactly 1} \hspace{0.5in} \correct{1 or more} \hspace{0.5in} \textbf{at least 2}
 
-   \item \pts{2} \textbf{TRUE} or \correct{FALSE}: because we have the singleton design pattern, global state is a good design choice
+%%    \item \pts{2} \textbf{TRUE} or \correct{FALSE}: because we have the singleton design pattern, global state is a good design choice
 
    \item \pts{2} When a version control system like \lstinline{git} determines that two changes are conflict-free, which of the following
      are possible for the merged code? Circle all that apply.
@@ -298,10 +300,10 @@ Contents (blanks for graders only):
    \item \pts{2} Why is exhaustive testing not possible for most programs in practice? Answer in five words or fewer.
      \answershort{Input space is too large.}
 
-   \item \pts{2} You are writing a compiler for your new language, Java++ (it's like Java, but with more classes!).
-     A user reports that a particular program doesn't compile correctly. You add that program to your test suite,
-     and then you start fixing the problem in your compiler. You are practicing
-     \\ \answershort{test-driven development}
+%%    \item \pts{2} You are writing a compiler for your new language, Java++ (it's like Java, but with more classes!).
+%%      A user reports that a particular program doesn't compile correctly. You add that program to your test suite,
+%%      and then you start fixing the problem in your compiler. You are practicing
+%%      \\ \answershort{test-driven development}
      
   \newpage
 
@@ -344,30 +346,32 @@ Contents (blanks for graders only):
     }
     \end{enumerate}
 
-  \item For each sub-problem, specify if delta debugging can be used
-    to solve the problem. If it can, provide a brief description of an "Interesting" function that will help solve the problem. If it
-    cannot, specify which properties of delta debugging make it not suitable to solve the problem.
-    \begin{enumerate}
+\newpage
 
-    \item \pts{3} Given a list of (positive and negative) integers that sums to zero, we want to find the minimal subset that sums to zero.\\
-      \answerlong{Delta debugging is not suitable for this use case: integer summation is ambiguous.}
+%%   \item For each sub-problem, specify if delta debugging can be used
+%%     to solve the problem. If it can, provide a brief description of an "Interesting" function that will help solve the problem. If it
+%%     cannot, specify which properties of delta debugging make it not suitable to solve the problem.
+%%     \begin{enumerate}
 
-    \item \pts{3} In an effort to reduce the memory footprint of a Java program, we decide to try replacing
-      every \lstinline{long} variable with an \lstinline{int}. However, when we do so, our program fails some of its test cases (we suspect due to integer overflow). We want to
-      identify which \lstinline{long} variables can be replaced with \lstinline{int} variables such that the program still passes all tests.\\
-      \answerlong{Delta debugging is suitable for this use case. We can define script is_interesting.sh such that it takes a
-        list of occurrences of long and replaces each with an int. The script exits 1 if the code compiles and runs the tests
-        successfully, and it exits 0 if the code doesn't compile or fails any tests.}
+%%     \item \pts{3} Given a list of (positive and negative) integers that sums to zero, we want to find the minimal subset that sums to zero.\\
+%%       \answerlong{Delta debugging is not suitable for this use case: integer summation is ambiguous.}
 
-    \item \pts{3} In an effort to reduce the build time of a Java program, we decide to try removing
-      dependencies from our build file: the program is old, and we believe some of the dependencies are no longer used.
-      However, when we do so, our program fails to compile (we suspect because some of the dependencies we removed are
-      still in use). We want to identify the minimal subset of dependencies that enables our program to compile.\\
-      \answerlong{Delta debugging is suitable for this use case. We can define script is_interesting.sh such that it takes a list of
-        dependencies, removes them from the build file, and then attempts to compile the program. The script exits 1 if the code compiles
-        successfully, and 0 if it does not.}
+%%     \item \pts{3} In an effort to reduce the memory footprint of a Java program, we decide to try replacing
+%%       every \lstinline{long} variable with an \lstinline{int}. However, when we do so, our program fails some of its test cases (we suspect due to integer overflow). We want to
+%%       identify which \lstinline{long} variables can be replaced with \lstinline{int} variables such that the program still passes all tests.\\
+%%       \answerlong{Delta debugging is suitable for this use case. We can define script is_interesting.sh such that it takes a
+%%         list of occurrences of long and replaces each with an int. The script exits 1 if the code compiles and runs the tests
+%%         successfully, and it exits 0 if the code doesn't compile or fails any tests.}
+
+%%     \item \pts{3} In an effort to reduce the build time of a Java program, we decide to try removing
+%%       dependencies from our build file: the program is old, and we believe some of the dependencies are no longer used.
+%%       However, when we do so, our program fails to compile (we suspect because some of the dependencies we removed are
+%%       still in use). We want to identify the minimal subset of dependencies that enables our program to compile.\\
+%%       \answerlong{Delta debugging is suitable for this use case. We can define script is_interesting.sh such that it takes a list of
+%%         dependencies, removes them from the build file, and then attempts to compile the program. The script exits 1 if the code compiles
+%%         successfully, and 0 if it does not.}
       
-      \end{enumerate}
+%%      \end{enumerate}
 
     \item Consider the following items from the ``Joel Test'', which we read before lecture 2:
     \begin{itemize}
@@ -388,30 +392,30 @@ Contents (blanks for graders only):
       \answerlong{Answers vary.}
     \end{enumerate}
 
-  \item \pts{4}  Write a method accepting one input parameter for which test input generation
-    via constraint solving will work better than test input generation at random.\\
-    \answerlong{Answers vary. The key idea is to include a very specific test. For example:\\
-      \begin{lstlisting}
-        int foo(int x) {
-          if (x == 10) return 0;
-          else return 1;
-        }
-      \end{lstlisting}
-    }
+%%   \item \pts{4}  Write a method accepting one input parameter for which test input generation
+%%     via constraint solving will work better than test input generation at random.\\
+%%     \answerlong{Answers vary. The key idea is to include a very specific test. For example:\\
+%%       \begin{lstlisting}
+%%         int foo(int x) {
+%%           if (x == 10) return 0;
+%%           else return 1;
+%%         }
+%%       \end{lstlisting}
+%%     }
 
-  \item For each of the following bugs, describe a situation in which the bug would be \emph{high severity}
-    and describe another situation in which the bug would be \emph{low severity}.
-    \begin{enumerate}
-    \item \pts{2} A programmer-managed resource, such as a socket or database connection, is not closed before
-      the last pointer to it goes out of scope.\\
-      \answerlong{High severity: a long-running program, such as a webserver, which may eventually run out of resources.
-        Low severity: a short-running program, such as one that sends a single ping and then exits: the resource will
-        be freed when the program ends, anyway. Other examples are possible.}
-    \item \pts{2} An integer value is stored in the wrong units (e.g., feet vs meters, seconds vs hours, etc.).\\
-      \answerlong{High severity: Mars polar orbiter crash. Low severity: the integer value is part of a game
-        and is only displayed to the user: e.g., it doesn't matter if an imaginary car's speed is in m/s or mph.
-        Other answers are possible.}
-      \end{enumerate}
+%%   \item For each of the following bugs, describe a situation in which the bug would be \emph{high severity}
+%%     and describe another situation in which the bug would be \emph{low severity}.
+%%     \begin{enumerate}
+%%     \item \pts{2} A programmer-managed resource, such as a socket or database connection, is not closed before
+%%       the last pointer to it goes out of scope.\\
+%%       \answerlong{High severity: a long-running program, such as a webserver, which may eventually run out of resources.
+%%         Low severity: a short-running program, such as one that sends a single ping and then exits: the resource will
+%%         be freed when the program ends, anyway. Other examples are possible.}
+%%     \item \pts{2} An integer value is stored in the wrong units (e.g., feet vs meters, seconds vs hours, etc.).\\
+%%       \answerlong{High severity: Mars polar orbiter crash. Low severity: the integer value is part of a game
+%%         and is only displayed to the user: e.g., it doesn't matter if an imaginary car's speed is in m/s or mph.
+%%         Other answers are possible.}
+%%       \end{enumerate}
 
     \item Consider the following pairs of tools, techniques, or processes. For each pair, give a class of defects or a
 situation for which the first element performs better than the second (i.e., is more likely to succeed and reduce software
@@ -420,16 +424,16 @@ engineering effort and/or improve software engineering outcomes) and explain why
 \item \pts{3} Agile development model better than waterfall development model\\
   \answerlong{Agile is best when requirements are not fully known in advance and the customer is easy to access, because it relies on
     fast feedback cycles between your prototypes and the customer.}
-\item \pts{3} DevOps approach to operations better than traditional (``sysadmin'') approach to operations\\
-  \answerlong{DevOps is best when the organization developing a service is also running that service, becasue operational pain
-    is felt by the same org.}
-\item \pts{3} Watchpoints better than breakpoints \\
-  \answerlong{Watchpoints are better when you know what value shouldn't be changing, but not where in the code that change is occuring.}
+%% \item \pts{3} DevOps approach to operations better than traditional (``sysadmin'') approach to operations\\
+%%   \answerlong{DevOps is best when the organization developing a service is also running that service, becasue operational pain
+%%     is felt by the same org.}
+%% \item \pts{3} Watchpoints better than breakpoints \\
+%%   \answerlong{Watchpoints are better when you know what value shouldn't be changing, but not where in the code that change is occuring.}
 \item \pts{3} Fuzzing better than regression testing \\
   \answerlong{Fuzzing is better if the existing test suite is very small. Another reasonable answer is that fuzzing can find new bugs, but regression testing only prevents bug that have occurred before.}
-\item \pts{3} Modern code review better than integration testing \\
-  \answerlong{The easiest answer is that code review can find code-design defects, but integration testing cannot. Other answers are possible.}
-\item \pts{3} interpreted languages better than compiled languages \\
+%% \item \pts{3} Modern code review better than integration testing \\
+%%   \answerlong{The easiest answer is that code review can find code-design defects, but integration testing cannot. Other answers are possible.}
+\item \pts{3} Interpreted languages better than compiled languages \\
   \answerlong{Interpreted languages are better for rapid prototyping and are usually easier to write code in.}
 \end{enumerate}
 
@@ -453,48 +457,48 @@ engineering effort and/or improve software engineering outcomes) and explain why
 inputs. Assuming each condition evaluates a single unique input, what is the minimum
 number of test cases required to achieve:
 \begin{enumerate}
-\item \pts{1} 100\% branch coverage? \answershort{2: one that causes each branch to evaluate to false, and another that causes each branch to evaluate to true}
+\item \pts{1} 100\% branch coverage? \answershort{2: one all false, one all true}
 \item \pts{1} 100\% condition coverage? \answershort{12 = 2*6}
 \end{enumerate}
 
-\item \pts{7} Consider a static analysis that computes, for every program point, which variables contain a value that has
-  definitely been used by the program up to that point. (This is a form of \emph{strictness analysis}.) The analysis
-  associates an analysis fact with each variable at each program point: either ``T'', meaning ``it is not known whether the
-  variable has been used yet'' (aka ``top''); or ``U'', meaning ``the variable has definitely been used at this point.'' The analysis has
-  a transfer function for binary addition: after the statement ``x = y + z'', ``y'' and ``z'' are both ``U''. It also has a
-  transfer function for ``return x'': after such a statment, ``x'' is ``U''. Other transfer functions are standard for a forwards,
-  ``definitely''-style analysis (like the nullness analysis described in class).
-  Simulate this analysis on the following program, filling in each blank with the corresponding abstract value (``T'' or ``U'')
-  that the analysis would compute for that variable at that point. (The ``*'' boolean operator means ``choose at random'', or equivalently, ``flip a coin''.)
-  (1pt per program point, no partial credit.)
+%% \item \pts{7} Consider a static analysis that computes, for every program point, which variables contain a value that has
+%%   definitely been used by the program up to that point. (This is a form of \emph{strictness analysis}.) The analysis
+%%   associates an analysis fact with each variable at each program point: either ``T'', meaning ``it is not known whether the
+%%   variable has been used yet'' (aka ``top''); or ``U'', meaning ``the variable has definitely been used at this point.'' The analysis has
+%%   a transfer function for binary addition: after the statement ``x = y + z'', ``y'' and ``z'' are both ``U''. It also has a
+%%   transfer function for ``return x'': after such a statment, ``x'' is ``U''. Other transfer functions are standard for a forwards,
+%%   ``definitely''-style analysis (like the nullness analysis described in class).
+%%   Simulate this analysis on the following program, filling in each blank with the corresponding abstract value (``T'' or ``U'')
+%%   that the analysis would compute for that variable at that point. (The ``*'' boolean operator means ``choose at random'', or equivalently, ``flip a coin''.)
+%%   (1pt per program point, no partial credit.)
 
-  \begin{lstlisting}[escapechar=\%]
-def f(a, b, c) {
-                   [ a -> %\answervvshort{T}%, b -> %\answervvshort{T}%, c -> %\answervvshort{T}%, d -> %\answervvshort{T}% ]
-  if (*) {
-                   [ a -> %\answervvshort{T}%, b -> %\answervvshort{T}%, c -> %\answervvshort{T}%, d -> %\answervvshort{T}% ]
-    d = a + b;
-                   [ a -> %\answervvshort{U}%, b -> %\answervvshort{U}%, c -> %\answervvshort{T}%, d -> %\answervvshort{T}% ]
-  } else {
-                   [ a -> %\answervvshort{T}%, b -> %\answervvshort{T}%, c -> %\answervvshort{T}%, d -> %\answervvshort{T}% ]
-    d = a + c;
-                   [ a -> %\answervvshort{U}%, b -> %\answervvshort{T}%, c -> %\answervvshort{U}%, d -> %\answervvshort{T}% ]
-  }
-                   [ a -> %\answervvshort{U}%, b -> %\answervvshort{T}%, c -> %\answervvshort{T}%, d -> %\answervvshort{T}% ]
-  return d;
-                   [ a -> %\answervvshort{U}%, b -> %\answervvshort{T}%, c -> %\answervvshort{T}%, d -> %\answervvshort{U}% ]
-}
-  \end{lstlisting}
+%%   \begin{lstlisting}[escapechar=\%]
+%% def f(a, b, c) {
+%%                    [ a -> %\answervvshort{T}%, b -> %\answervvshort{T}%, c -> %\answervvshort{T}%, d -> %\answervvshort{T}% ]
+%%   if (*) {
+%%                    [ a -> %\answervvshort{T}%, b -> %\answervvshort{T}%, c -> %\answervvshort{T}%, d -> %\answervvshort{T}% ]
+%%     d = a + b;
+%%                    [ a -> %\answervvshort{U}%, b -> %\answervvshort{U}%, c -> %\answervvshort{T}%, d -> %\answervvshort{T}% ]
+%%   } else {
+%%                    [ a -> %\answervvshort{T}%, b -> %\answervvshort{T}%, c -> %\answervvshort{T}%, d -> %\answervvshort{T}% ]
+%%     d = a + c;
+%%                    [ a -> %\answervvshort{U}%, b -> %\answervvshort{T}%, c -> %\answervvshort{U}%, d -> %\answervvshort{T}% ]
+%%   }
+%%                    [ a -> %\answervvshort{U}%, b -> %\answervvshort{T}%, c -> %\answervvshort{T}%, d -> %\answervvshort{T}% ]
+%%   return d;
+%%                    [ a -> %\answervvshort{U}%, b -> %\answervvshort{T}%, c -> %\answervvshort{T}%, d -> %\answervvshort{U}% ]
+%% }
+%%   \end{lstlisting}
 
-\item \pts{4} You are a software engineer at Orange, a computer hardware company that also has a software division, since someone
-  needs to write the app store for your lead hardware product. You are responsible for replacing a microservice that is responsible
-  for determining how much money customers owe to various app store vendors at the end of each month; your service sends this information
-  to another service that actually sends the customer a bill. The legacy service exists but is very slow; your boss wants you to rewrite
-  it to improve its performance. However, your boss is also extremely concerned about correctness. Describe a low-cost strategy that you
-  could apply in this situation to ensure that your new service has the same behavior as the slow, legacy version. Answer in at most 3 sentences.
-  \\\answerlong{The correct thing to do here is to apply differential testing (aka ``tests for free''): log all traffic to the old service,
-    and check that the new service produces the same answers as the old one for each input for some period of time (until your boss is
-    satisfied, probably).}
+%% \item \pts{4} You are a software engineer at Orange, a computer hardware company that also has a software division, since someone
+%%   needs to write the app store for your lead hardware product. You are responsible for replacing a microservice that is responsible
+%%   for determining how much money customers owe to various app store vendors at the end of each month; your service sends this information
+%%   to another service that actually sends the customer a bill. The legacy service exists but is very slow; your boss wants you to rewrite
+%%   it to improve its performance. However, your boss is also extremely concerned about correctness. Describe a low-cost strategy that you
+%%   could apply in this situation to ensure that your new service has the same behavior as the slow, legacy version. Answer in at most 3 sentences.
+%%   \\\answerlong{The correct thing to do here is to apply differential testing (aka ``tests for free''): log all traffic to the old service,
+%%     and check that the new service produces the same answers as the old one for each input for some period of time (until your boss is
+%%     satisfied, probably).}
 
 \item \pts{3} Support or refute the claim ``You cannot have continuous integration without hermetic builds.''
   Answer in three sentences or fewer.\\
@@ -564,52 +568,52 @@ particular candidate.) Use at most 4 sentences.\\
 3. The candidate has consistent indentation.
 4. The candidate used a descriptive variable name.}
 
-\item \pts{4} Support or refute the claim that the candidate's implementation of \lstinline{isPalindrome()} is functionally correct. Use
+\item \pts{4} \label{lastQuestion} Support or refute the claim that the candidate's implementation of \lstinline{isPalindrome()} is functionally correct. Use
   at most 4 sentences.\\
   \answerlong{Refute. The candidate's implementation of isPalindrome() is not functionally correct. The candidate missed a base
 case regarding x being a negative number. Negative integers would not count as a palindrome. {-313} reversed is {313-}.}
     
-    \newpage
+%%     \newpage
 
-    Questions on this page refer to \textbf{Document C}.
-    Assume that the only statements we are interested in are \lstinline{STATEMENT 1} through \lstinline{STATEMENT 4}.
+%%     Questions on this page refer to \textbf{Document C}.
+%%     Assume that the only statements we are interested in are \lstinline{STATEMENT 1} through \lstinline{STATEMENT 4}.
 
-  \item \label{sl1} \pts{2} Write a test suite for \lstinline{foo} with 50\% statement coverage. Express your answer as a list of tuples, e.g., ``(x = \#, y = \#, z = \#), (x = \#, y = \#, z = \#), etc.'', where each ``\#'' is a specific integer. \\
-  \answerlong{(x = 6, y = 0, z = 3)}
+%%   \item \label{sl1} \pts{2} Write a test suite for \lstinline{foo} with 50\% statement coverage. Express your answer as a list of tuples, e.g., ``(x = \#, y = \#, z = \#), (x = \#, y = \#, z = \#), etc.'', where each ``\#'' is a specific integer. \\
+%%   \answerlong{(x = 6, y = 0, z = 3)}
     
-  \item \pts{2} Is it possible to achieve 100\% statement coverage on this method? If so, provide a test suite that has 100\% statement coverage. If not, why not? \\
-    \answerlong{It is not possible, because STATEMENT 2 is unreachable.}
+%%   \item \pts{2} Is it possible to achieve 100\% statement coverage on this method? If so, provide a test suite that has 100\% statement coverage. If not, why not? \\
+%%     \answerlong{It is not possible, because STATEMENT 2 is unreachable.}
 
-  \item \label{el1} Consider the mutation operator ``< to <=''.
-    \begin{enumerate}
-    \item \pts{2} How many first-order (``mutated only once'') mutants can be produced by applying this mutation operator
-    to \lstinline$foo$?\\ \answervshort{2}
-    \item \pts{3} What is the mutation score of a test suite containing only the following test input (assume that executing a different statement causes the mutant to be killed):
-    (x = 5, y = 2, z = 5)?\\ \answershort{0\%}
-    \item \pts{3} Is it possible to change one of x, y, or z in the test input in the previous part of the question to improve the mutation score?
-    If so, state which of x, y, and z to change, what its new value should be, and what the new mutation score is. If not, explain
-    why not. \\
-    \answerlong{z = 6 changes the mutation score to 50\%}
-    \item \pts{3} Is it possible to change one of x, y, or z in the test input in the previous part of the question to improve the mutation score again?
-    If so, state which of x, y, and z to change, what its new value should be, and what the new mutation score is. If not, explain
-    why not. \\
-    \answerlong{It is not, because the second mutant is an equivalent mutant.}
-    \end{enumerate}
+%%   \item \label{el1} Consider the mutation operator ``< to <=''.
+%%     \begin{enumerate}
+%%     \item \pts{2} How many first-order (``mutated only once'') mutants can be produced by applying this mutation operator
+%%     to \lstinline$foo$?\\ \answervshort{2}
+%%     \item \pts{3} What is the mutation score of a test suite containing only the following test input (assume that executing a different statement causes the mutant to be killed):
+%%     (x = 5, y = 2, z = 5)?\\ \answershort{0\%}
+%%     \item \pts{3} Is it possible to change one of x, y, or z in the test input in the previous part of the question to improve the mutation score?
+%%     If so, state which of x, y, and z to change, what its new value should be, and what the new mutation score is. If not, explain
+%%     why not. \\
+%%     \answerlong{z = 6 changes the mutation score to 50\%}
+%%     \item \pts{3} Is it possible to change one of x, y, or z in the test input in the previous part of the question to improve the mutation score again?
+%%     If so, state which of x, y, and z to change, what its new value should be, and what the new mutation score is. If not, explain
+%%     why not. \\
+%%     \answerlong{It is not, because the second mutant is an equivalent mutant.}
+%%     \end{enumerate}
 
-    \newpage
+%%     \newpage
 
-    Questions on this page refer to \textbf{Document D}.
+%%     Questions on this page refer to \textbf{Document D}.
 
-    Suppose that you are a software engineer at \lstinline{codewith.us}, a non-profit that provides computer science education
-    services to K-12 students via an online coding platform. Your boss sends you the email in \textbf{Document D}.
+%%     Suppose that you are a software engineer at \lstinline{codewith.us}, a non-profit that provides computer science education
+%%     services to K-12 students via an online coding platform. Your boss sends you the email in \textbf{Document D}.
 
-  \item \pts{15} Write a response to your boss. Your response must either provide a reasonable, well-justified plan
-    for how you will implement the proposed feature (including task sizing and at least research, implementation, and testing tasks)
-    or a well-reasoned justification for why the proposed feature is not feasible.
+%%   \item \pts{15} Write a response to your boss. Your response must either provide a reasonable, well-justified plan
+%%     for how you will implement the proposed feature (including task sizing and at least research, implementation, and testing tasks)
+%%     or a well-reasoned justification for why the proposed feature is not feasible.
 
-    \answerlong{The proposed feature is an instance of the halting problem, and Mr. Rice's insistence that
-      you get the correct answer 100\% of the time means that it is impossible to implement the feature as described.
-    Correct answers must be phrased as an email, and use a polite but firm tone.}
+%%     \answerlong{The proposed feature is an instance of the halting problem, and Mr. Rice's insistence that
+%%       you get the correct answer 100\% of the time means that it is impossible to implement the feature as described.
+%%     Correct answers must be phrased as an email, and use a polite but firm tone.}
 
     \newpage
     
@@ -674,52 +678,52 @@ bool isPalindrome(int x) {
  return x == revertedNumber || x == revertedNumber / 10;
 }
 \end{lstlisting}
-    \newpage
 %    \newpage
-    \textbf{Document C:}
-    \begin{lstlisting}
-    void foo(int x, int y, int z) {
-      if (x > 5) {
-        // STATEMENT 1
-      else if (y < 4 && x > 7) {
-        // STATEMENT 2
-      }
-      if (z < 6) {
-        // STATEMENT 3
-      } else {
-        // STATEMENT 4
-      }
-    }
-    \end{lstlisting}
+%    \newpage
+%%     \textbf{Document C:}
+%%     \begin{lstlisting}
+%%     void foo(int x, int y, int z) {
+%%       if (x > 5) {
+%%         // STATEMENT 1
+%%       else if (y < 4 && x > 7) {
+%%         // STATEMENT 2
+%%       }
+%%       if (z < 6) {
+%%         // STATEMENT 3
+%%       } else {
+%%         // STATEMENT 4
+%%       }
+%%     }
+%%     \end{lstlisting}
 
-\vspace{0.5in}
+%% \vspace{0.5in}
     
-    \textbf{Document D:}
+%%     \textbf{Document D:}
 
-    [Your Name],
+%%     [Your Name],
 
-    I met with the executive board today, and they're onboard with a new feature to help our students avoid
-    writing programs that run forever by warning them before they start a program whether it will loop forever.
-    I'd like you to design the feature and then write me up an estimate for how much time it'll take you to
-    implement. Here are some requirements I gathered from the board:
-    \begin{itemize}
-    \item All the board members agreed that the warning message needs to be a bright red popup that appears
-      when the student is about to run a program that'll run forever.
-    \item Ms. Wheat (she used to be a teacher, remember, so she really gets the students!) insisted that we
-      use only simple words in the warning message. I think her suggestion was ``Watch out! This might last forever!'', but
-      we can iterate on that.
-    \item Mr. Rice (who, as you might remember, is our biggest donor - so we have to keep him happy) insisted that
-      if we're going to spend technical resources on this and not on his pet project of making all of our buttons larger,
-      we really have to get it right every time.
-    \item All the board members agreed that you should use a font that really pops out and makes the kids rethink what
-      they were about to do. They all still think it's the 90s, though, so we can probably not worry about this too much
-      as long as the design you pick gels with the rest of the site.
-    \end{itemize}
+%%     I met with the executive board today, and they're onboard with a new feature to help our students avoid
+%%     writing programs that run forever by warning them before they start a program whether it will loop forever.
+%%     I'd like you to design the feature and then write me up an estimate for how much time it'll take you to
+%%     implement. Here are some requirements I gathered from the board:
+%%     \begin{itemize}
+%%     \item All the board members agreed that the warning message needs to be a bright red popup that appears
+%%       when the student is about to run a program that'll run forever.
+%%     \item Ms. Wheat (she used to be a teacher, remember, so she really gets the students!) insisted that we
+%%       use only simple words in the warning message. I think her suggestion was ``Watch out! This might last forever!'', but
+%%       we can iterate on that.
+%%     \item Mr. Rice (who, as you might remember, is our biggest donor - so we have to keep him happy) insisted that
+%%       if we're going to spend technical resources on this and not on his pet project of making all of our buttons larger,
+%%       we really have to get it right every time.
+%%     \item All the board members agreed that you should use a font that really pops out and makes the kids rethink what
+%%       they were about to do. They all still think it's the 90s, though, so we can probably not worry about this too much
+%%       as long as the design you pick gels with the rest of the site.
+%%     \end{itemize}
 
-    Get back to me ASAP with that estimate - I want you working on this next sprint.
+%%     Get back to me ASAP with that estimate - I want you working on this next sprint.
 
-    Thanks!
-    [Your Boss]
+%%     Thanks!
+%%     [Your Boss]
     
     
 %% \item What is the value of each expression using the provided
