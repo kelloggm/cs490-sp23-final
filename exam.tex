@@ -207,6 +207,13 @@ To get credit for this question, you must:
   \\ \correct{B}\hspace{0.2in}a user story
   \\ \textbf{C}\hspace{0.2in} the end of a particular sprint
   \\ \correct{D}\hspace{0.2in}a particular test passes
+
+\item \pts{2}
+  When interviewing for a software engineering role, which of the following are you likely to be evaluated on? Circle all that apply.
+  \\ \textbf{A}\hspace{0.2in} your actual ability to do the job of a software engineer
+  \\ \correct{B}\hspace{0.2in}your knowledge of coding and specific algorithms
+  \\ \correct{C}\hspace{0.2in}your niceness and personality
+  \\ \textbf{D}\hspace{0.2in} how well you are dressed
   
 \item \pts{2}
   \textbf{TRUE} or \correct{FALSE}: continuous integration can only be used by DevOps teams
@@ -255,47 +262,6 @@ To get credit for this question, you must:
   \answerlong{For 1. above: ``avoid magic numbers'' or ``more self-documenting''. For 2. above: ``radius'' is more descriptive than ``r'', or ``compute'' is a verb, but the method returns a noun-like type.}
 
   \end{enumerate}
-  
- \noindent Questions \ref{sl1} to \ref{el1} concern the following method:
-
-  \begin{lstlisting}
-    void foo(int x, int y, int z) {
-      if (x > 5) {
-        // STATEMENT 1
-      else if (y < 4 && x > 7) {
-        // STATEMENT 2
-      }
-      if (z < 6) {
-        // STATEMENT 3
-      } else {
-        // STATEMENT 4
-      }
-    }
-  \end{lstlisting}
-
-  Assume that the only statements we are interested in are \lstinline{STATEMENT 1} through \lstinline{STATEMENT 4}.
-
-  \item \label{sl1} \pts{2} Write a test suite suite with 50\% statement coverage. Express your answer as a list of tuples, e.g., ``(x = a, y = b, z = c), (x = d, y = e, z = f), etc.''. \\
-  \answerlong{(x = 6, y = 0, z = 3)}
-    
-  \item \pts{2} Is it possible to achieve 100\% statement coverage on this method? If so, provide a test suite that has 100\% statement coverage. If not, why not? \\
-    \answerlong{It is not possible, because STATEMENT 2 is unreachable.}
-
-  \item \label{el1} Consider the mutation operator ``< to <=''.
-    \begin{enumerate}
-    \item \pts{2} How many mutants can be produced by applying this mutation operator
-    to \lstinline$foo$?\\ \answershort{2}
-    \item \pts{2} What is the mutation score of a test suite containing only the following test input (assume that executing a different statement causes the mutant to be killed):
-    (x = 5, y = 2, z = 5)?\\ \answershort{0\%}
-    \item \pts{3} Is it possible to change one of x, y, or z in the test input in the previous part of the question to improve the mutation score?
-    If so, state which of x, y, and z to change, what its new value should be, and what the new mutation score is. If not, explain
-    why not. \\
-    \answerlong{z = 6 changes the mutation score to 50\%}
-    \item \pts{3} Is it possible to change one of x, y, or z in the test input in the previous part of the question to improve the mutation score?
-    If so, state which of x, y, and z to change, what its new value should be, and what the new mutation score is. If not, explain
-    why not. \\
-    \answerlong{It is not, because the second mutant is an equivalent mutant.}
-    \end{enumerate}
 
   \item Suppose that you are a manager at AmiZone, a French social networking company. Radhia, one of your engineers, comes to you
     with a proposal to redirect 30\% of the effort you currently spend on integration testing to instead run a static analysis.
@@ -315,6 +281,50 @@ To get credit for this question, you must:
     }
     \end{enumerate}
 
+  \item For each sub-problem, specify if delta debugging can be used
+    to solve the problem. If it can, provide a brief description of an "Interesting" function that will help solve the problem. If it
+    cannot, specify which properties of delta debugging make it not suitable to solve the problem.
+    \begin{enumerate}
+
+    \item \pts{2} Given a list of (positive and negative) integers that sums to zero, we want to find the minimal subset that sums to zero.\\
+      \answerlong{Delta debugging is not suitable for this use case: integer summation is ambiguous.}
+
+    \item \pts{2} In an effort to reduce the memory footprint of a Java program, we decide to try replacing
+      every \lstinline{long} variable with an \lstinline{int}. However, when we do so, our program fails some of its test cases (we suspect due to integer overflow). We want to
+      identify which \lstinline{long} variables can be replaced with \lstinline{int} variables such that the program still passes all tests.\\
+      \answerlong{Delta debugging is suitable for this use case. We can define script is_interesting.sh such that it takes a
+list of occurrences of long and replaces each with an int. The script exits 1 if the code compiles and runs the tests
+successfully, and it exits 0 if the code doesn't compile or fails any tests.}
+
+    \item \pts{2} In an effort to reduce the build time of a Java program, we decide to try removing
+      dependencies from our build file: the program is old, and we believe some of the dependencies are no longer used.
+      However, when we do so, our program fails to compile (we suspect because some of the dependencies we removed are
+      still in use). We want to identify the minimal subset of dependencies that enables our program to compile.\\
+      \answerlong{Delta debugging is suitable for this use case. We can define script is_interesting.sh such that it takes a list of
+        dependencies, removes them from the build file, and then attempts to compile the program. The script exits 1 if the code compiles
+        successfully, and 0 if it does not.}
+      
+      \end{enumerate}
+
+    \item Consider the following items from the ``Joel Test'', which we read before lecture 2:
+    \begin{itemize}
+      \item \textbf{A}: Do you use source control?
+      \item \textbf{B}: Can you make a build in one step?
+      \item \textbf{C}: Do you have a bug database?
+      \item \textbf{D}: Do you fix bugs before writing new code?
+      \item \textbf{E}: Do you have an up-to-date schedule?
+    \end{itemize}
+
+    \begin{enumerate}
+    \item \pts{2} Identify one of the above Joel Test items \textbf{A}-\textbf{E} that your group project did better than the other items. Explain why you
+      were better at this item than the others and how it benefited your project.\\
+      \answerlong{Answers vary.}
+
+    \item \pts{2} Identify one of the above Joel Test items \textbf{A}-\textbf{E} that your group project did worse than the other items. Explain, via
+      specific examples, how failing to meet this Joel Test requirement impacted your project.\\
+      \answerlong{Answers vary.}
+      \end{enumerate}
+    
     \newpage
     \textbf{IV. Document-based Questions.} All questions in this section refer to a documents \textbf{A-B}.
     These documents appear at the end of the exam (I recommend that you tear them out and refer to them as you answer the questions).
@@ -384,6 +394,48 @@ particular candidate.) Use at most 4 sentences.\\
 case regarding x being a negative number. Negative integers would not count as a palindrome. {-313} reversed is {313-}.}
     
     \newpage
+
+    Questions on this page refer to \textbf{Document C}.
+    Assume that the only statements we are interested in are \lstinline{STATEMENT 1} through \lstinline{STATEMENT 4}.
+
+  \item \label{sl1} \pts{2} Write a test suite for \lstinline{foo} with 50\% statement coverage. Express your answer as a list of tuples, e.g., ``(x = a, y = b, z = c), (x = d, y = e, z = f), etc.''. \\
+  \answerlong{(x = 6, y = 0, z = 3)}
+    
+  \item \pts{2} Is it possible to achieve 100\% statement coverage on this method? If so, provide a test suite that has 100\% statement coverage. If not, why not? \\
+    \answerlong{It is not possible, because STATEMENT 2 is unreachable.}
+
+  \item \label{el1} Consider the mutation operator ``< to <=''.
+    \begin{enumerate}
+    \item \pts{2} How many mutants can be produced by applying this mutation operator
+    to \lstinline$foo$?\\ \answershort{2}
+    \item \pts{2} What is the mutation score of a test suite containing only the following test input (assume that executing a different statement causes the mutant to be killed):
+    (x = 5, y = 2, z = 5)?\\ \answershort{0\%}
+    \item \pts{3} Is it possible to change one of x, y, or z in the test input in the previous part of the question to improve the mutation score?
+    If so, state which of x, y, and z to change, what its new value should be, and what the new mutation score is. If not, explain
+    why not. \\
+    \answerlong{z = 6 changes the mutation score to 50\%}
+    \item \pts{3} Is it possible to change one of x, y, or z in the test input in the previous part of the question to improve the mutation score?
+    If so, state which of x, y, and z to change, what its new value should be, and what the new mutation score is. If not, explain
+    why not. \\
+    \answerlong{It is not, because the second mutant is an equivalent mutant.}
+    \end{enumerate}
+
+    \newpage
+
+    Questions on this page refer to \textbf{Document D}.
+
+    Suppose that you are a software engineer at \lstinline{codewith.us}, a non-profit that provides computer science education
+    services to K-12 students via an online coding platform. Your boss sends you the email in \textbf{Document D}.
+
+  \item \pts{10} Write a response to your boss. Your response must either provide a reasonable, well-justified plan
+    for how you will implement the proposed feature (including task sizing and at least research, implementation, and testing tasks)
+    or a well-reasoned justification for why the proposed feature is not feasible.
+
+    \answerlong{The proposed feature is an instance of the halting problem, and Mr. Rice's insistence that
+      you get the correct answer 100\% of the time means that it is impossible to implement the feature as described.
+    Correct answers must be phrased as an email, and use a polite but firm tone.}
+
+    \newpage
     
     \textbf{V. Extra Credit}. Questions in this section do not count towards the denominator of the exam score.
 
@@ -428,6 +480,51 @@ bool isPalindrome(int x) {
  return x == revertedNumber || x == revertedNumber / 10;
 }
 \end{lstlisting}
+
+%    \newpage
+    \textbf{Document C:}
+    \begin{lstlisting}
+    void foo(int x, int y, int z) {
+      if (x > 5) {
+        // STATEMENT 1
+      else if (y < 4 && x > 7) {
+        // STATEMENT 2
+      }
+      if (z < 6) {
+        // STATEMENT 3
+      } else {
+        // STATEMENT 4
+      }
+    }
+  \end{lstlisting}
+
+    \newpage
+    \textbf{Document D:}
+
+    [Your Name],
+
+    I met with the executive board today, and they're onboard with a new feature to help our students avoid
+    writing programs that run forever by warning them before they start a program whether it will loop forever.
+    I'd like you to design the feature and then write me up an estimate for how much time it'll take you to
+    implement. Here are some requirements I gathered from the board:
+    \begin{itemize}
+    \item All the board members agreed that the warning message needs to be a bright red popup that appears
+      when the student is about to run a program that'll run forever.
+    \item Ms. Wheat (she used to be a teacher, remember, so she really gets the students!) insisted that we
+      use only simple words in the warning message. I think her suggest was ``Watch out! This might last forever!'', but
+      we can iterate on that.
+    \item Mr. Rice (who, as you might remember, is our biggest donor - so we have to keep him happy) insisted that
+      if we're going to spend technical resources on this and not on his pet project of making all of our buttons larger,
+      we really have to get it right every time.
+    \item All the board members agreed that you should use a font that really pops out and makes the kids rethink what
+      they were about to do.
+    \end{itemize}
+
+    Get back to me ASAP with that estimate - I want you working on this next sprint.
+
+    Thanks!
+    [Your Boss]
+    
     
 %% \item What is the value of each expression using the provided
 %%   variables. Place a decimal point in your answer to indicate a double
