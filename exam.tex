@@ -168,7 +168,11 @@ To get credit for this question, you must:
 
 \item \pts{1}
   \textbf{DevOps, Part 2:}
-  TODO
+  Which of the following does Dan Luu advocate for when making a high-risk change?
+  \\ \textbf{A}\hspace{0.2in} having multiple people watch or confirm the operation
+  \\ \textbf{B}\hspace{0.2in} having ops people standing by in case of disaster
+  \\ \correct{C}\hspace{0.2in}automating the change instead of letting a human do it
+ 
 
   \newpage
 
@@ -239,6 +243,9 @@ To get credit for this question, you must:
   Advantages of static type systems: \answershort{early detection of errors},\\ \answershort{types are documentation} \\
   Advantages of dynamic type systems: \answershort{faster prototyping},\\ \answershort{no false positives}
 
+  \item \pts{2} An engineer is working on the backend of a website. He implements a function that makes a rather expensive
+    database query. When writing test cases, he substitutes a hard-coded string in place of the query. This is an example of
+     \answershort{mocking}
   
   \newpage
 
@@ -323,8 +330,77 @@ successfully, and it exits 0 if the code doesn't compile or fails any tests.}
     \item \pts{2} Identify one of the above Joel Test items \textbf{A}-\textbf{E} that your group project did worse than the other items. Explain, via
       specific examples, how failing to meet this Joel Test requirement impacted your project.\\
       \answerlong{Answers vary.}
+    \end{enumerate}
+
+  \item \pts{3}  Write a method accepting one input parameter for which test input generation
+    via constraint solving will work better than test input generation at random.\\
+    \answerlong{Answers vary. The key idea is to include a very specific test. For example:\\
+      \begin{lstlisting}
+        int foo(int x) {
+          if (x == 10) return 0;
+          else return 1;
+        }
+      \end{lstlisting}
+    }
+
+  \item For each of the following bugs, describe a situation in which the bug would be \emph{high severity}
+    and a situation in which the bug would be \emph{low severity}.
+    \begin{enumerate}
+    \item \pts{2} A programmer-managed resource, such as a socket or database connection, is not closed before
+      the last pointer to it goes out of scope.\\
+      \answerlong{High severity: a long-running program, such as a webserver, which may eventually run out of resources.
+        Low severity: a short-running program, such as one that sends a single ping and then exits: the resource will
+        be freed when the program ends, anyway. Other examples are possible.}
+    \item \pts{2} An integer value is stored in the wrong units (e.g., feet vs meters, seconds vs hours, etc.).\\
+      \answerlong{High severity: Mars polar orbiter crash. Low severity: the integer value is part of a game
+        and is only displayed to the user: e.g., it doesn't matter if an imaginary car's speed is in m/s or mph.
+        Other answers are possible.}
       \end{enumerate}
-    
+
+    \item Consider the following pairs of tools, techniques, or processes. For each pair, give a class of defects or a
+situation for which the first element performs better than the second (i.e., is more likely to succeed and reduce software
+engineering effort and/or improve software engineering outcomes) and explain why.
+\begin{enumerate}
+\item \pts{2} Agile development model better than waterfall development model\\
+  \answerlong{Agile is best when requirements are not fully known in advance and the customer is easy to access, because it relies on
+    fast feedback cycles between your prototypes and the customer.}
+\item \pts{2} DevOps approach to operations better than traditional (``sysadmin'') approach to operations\\
+  \answerlong{DevOps is best when the organization developing a service is also running that service, becasue operational pain
+    is felt by the same org.}
+\item \pts{2} Watchpoints better than breakpoints \\
+  \answerlong{Watchpoints are better when you know what value shouldn't be changing, but not where in the code that change is occuring.}
+\item \pts{2} Fuzzing better than regression testing \\
+  \answerlong{Fuzzing is better if the existing test suite is very small. Another reasonable answer is that fuzzing can find new bugs, but regression testing only prevents bug that have occurred before.}
+\item \pts{2} Modern code review better than integration testing \\
+  \answerlong{The easiest answer is that code review can find code-design defects, but integration testing cannot. Other answers are possible.}
+\item \pts{2} interpreted languages better than compiled languages \\
+  \answerlong{Interpreted languages are better for rapid prototyping and are usually easier to write code in.}
+\end{enumerate}
+
+\item You are the customer asking a software company to build you a program that
+  sorts a list of numbers. You both agree that the output of sort must be in descending order.
+  The company delivers a program that always returns the empty list. You meet to correct
+  this. The company then delivers a program that deterministically tries all permutations
+  of the input list until one is found that is sorted. (This is sometimes called “bogosort”.)
+  Explain two elements that may have gone wrong during requirements
+  elicitation (at any stage).
+  \begin{enumerate}
+  \item \pts{2} The first element:\\
+    \answerlong{There was an omission in the functional requirements: the customer failed to state that
+      the returned list must have the same elements as the input list.}
+  \item \pts{2} The second element:\\
+    \answerlong{Quality requirements were not discussed: bogosort is O(n!), which is much slower than
+      sorting a list ought to be (O(nlogn)). Other well-reasoned answers are also possible.}
+    \end{enumerate}
+
+\item Consider a program with six sequential if statements that accepts four boolean
+inputs. Assuming each condition evaluates a single unique input, what is the minimum
+number of test cases required to achieve:
+\begin{enumerate}
+\item \pts{1} 100\% branch coverage? \answershort{2: one that causes each branch to evaluate to false, and another that causes each branch to evaluate to true}
+\item \pts{1} 100\% condition coverage? \answershort{12 = 2*6}
+\end{enumerate}
+  
     \newpage
     \textbf{IV. Document-based Questions.} All questions in this section refer to a documents \textbf{A-B}.
     These documents appear at the end of the exam (I recommend that you tear them out and refer to them as you answer the questions).
@@ -414,7 +490,7 @@ case regarding x being a negative number. Negative integers would not count as a
     If so, state which of x, y, and z to change, what its new value should be, and what the new mutation score is. If not, explain
     why not. \\
     \answerlong{z = 6 changes the mutation score to 50\%}
-    \item \pts{3} Is it possible to change one of x, y, or z in the test input in the previous part of the question to improve the mutation score?
+    \item \pts{3} Is it possible to change one of x, y, or z in the test input in the previous part of the question to improve the mutation score again?
     If so, state which of x, y, and z to change, what its new value should be, and what the new mutation score is. If not, explain
     why not. \\
     \answerlong{It is not, because the second mutant is an equivalent mutant.}
@@ -511,13 +587,14 @@ bool isPalindrome(int x) {
     \item All the board members agreed that the warning message needs to be a bright red popup that appears
       when the student is about to run a program that'll run forever.
     \item Ms. Wheat (she used to be a teacher, remember, so she really gets the students!) insisted that we
-      use only simple words in the warning message. I think her suggest was ``Watch out! This might last forever!'', but
+      use only simple words in the warning message. I think her suggestion was ``Watch out! This might last forever!'', but
       we can iterate on that.
     \item Mr. Rice (who, as you might remember, is our biggest donor - so we have to keep him happy) insisted that
       if we're going to spend technical resources on this and not on his pet project of making all of our buttons larger,
       we really have to get it right every time.
     \item All the board members agreed that you should use a font that really pops out and makes the kids rethink what
-      they were about to do.
+      they were about to do. They all still think it's the 90s, though, so we can probably not worry about this too much
+      as long as the design you pick gels with the rest of the site.
     \end{itemize}
 
     Get back to me ASAP with that estimate - I want you working on this next sprint.
