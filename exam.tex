@@ -107,7 +107,7 @@ To get credit for this question, you must:
   
 \newpage
 
-\textbf{Reading Quiz Redux (5pts)}
+\textbf{I. Reading Quiz Redux (5pts)}
 
 \item \pts{1}
   \textbf{Static Analysis, Part 2:} \textbf{TRUE} or
@@ -172,7 +172,7 @@ To get credit for this question, you must:
 
   \newpage
 
-  \textbf{Multiple Choice and Very Short Answer (X pts).} In the following section, either circle your
+  \textbf{II. Multiple Choice and Very Short Answer (X pts).} In the following section, either circle your
   answer (possible answers appear in \textbf{bold}) or write a very short (one word or one phrase) answer in the space provided.
 
 \item \pts{2} Google (and other big tech companies) design their hiring process
@@ -235,7 +235,7 @@ To get credit for this question, you must:
   
   \newpage
 
-  \textbf{Short answer.} Answer the questions in this section in at most two sentences.
+  \textbf{III. Short answer.} Answer the questions in this section in at most two sentences.
 
 \item Consider the following code snippet: \\
   \begin{lstlisting}
@@ -297,12 +297,29 @@ To get credit for this question, you must:
     \answerlong{It is not, because the second mutant is an equivalent mutant.}
     \end{enumerate}
 
-    \newpage
-    \textbf{Document-based Questions.} All questions in this section refer to a documents \textbf{A-B}.
-    These documents appear at the end of the exam (I recommend that you tear them out and refer to them as you answer the questions).
-    Be sure that you have all of the documents listed.
+  \item Suppose that you are a manager at AmiZone, a French social networking company. Radhia, one of your engineers, comes to you
+    with a proposal to redirect 30\% of the effort you currently spend on integration testing to instead run a static analysis.
+\begin{enumerate}
+  \item \pts{3} Describe a situation where Radhia's proposal is a good choice for AmiZone: that is, a situation in which it
+    is clearly a better allocation of your limited development resources.
+    \\
+    \answerlong{Answers can vary. ``AmiZone is concerned about security bugs.'' is the shortest, best answer; short answers that
+      identify a class of bugs that static analysis is good at will get full credit..}
 
-    \textbf{The following questions concern Document A.}
+  \item \pts{4} Describe, in one sentence each, two risks associated with Radhia's proposal.\\
+    \answerlong{Any two of the following sentences would be a good answer (other answers are possible).
+      Reducing integration testing may increase the risk that bugs at the boundary between modules are not detected.
+      Static analysis may produce too many false positive alarms.
+      Static analysis may be unsound or may miss bugs (even of the kind it is supposed to find).
+      Static analysis errors may be too hard to understand.
+    }
+    \end{enumerate}
+
+    \newpage
+    \textbf{IV. Document-based Questions.} All questions in this section refer to a documents \textbf{A-B}.
+    These documents appear at the end of the exam (I recommend that you tear them out and refer to them as you answer the questions).
+
+    Questions on this page concern \textbf{Document A}.
     
     \item \pts{2} What kind of document is \textbf{Document A}? \\ \answershort{postmortem}
 
@@ -331,7 +348,44 @@ To get credit for this question, you must:
       
     \newpage
 
-    \textbf{Extra Credit}. Questions in this section do not count towards the denominator of the exam score.
+    Questions on this page refer to \textbf{Document B}, which is a candidate's response to you,
+    the interviewer, presenting them with the following technical challenge:
+
+    \emph{
+      ``Write isPalindrome(), a function that
+      returns true if parameter x is a palindrome integer. Note that an integer, like 12321, is a palindrome if it reads the same
+      forwards and backwards.''
+    }
+      
+    \textbf{Document B} also includes two questions that the candidate asked you (and your answers) on its first two lines.
+
+  \item \label{palindrome:id} \pts{2} Identify two test inputs where the provided \lstinline{isPalidrome()} implementation returns \lstinline{false}.\\
+    \answerlong{Answers will vary. Student solutions must not be a palindrome. {{123}}, {{10}} are potential answers that return
+      false.}
+
+  \item \pts{2} Your answers to question \ref{palindrome:id} could be which of the following kinds of tests (circle all that apply):
+    \\ \correct{A}\hspace{0.2in}unit tests
+    \\ \textbf{B}\hspace{0.2in} integration tests
+    \\ \textbf{C}\hspace{0.2in} fuzz tests
+    \\ \correct{D}\hspace{0.2in}partition tests
+
+  \item \pts{4}  Identify four things that the candidate did well. (In other words, identify four properties that a company might
+desire in a software engineer that could potentially be shown by a candidate taking the interview and that were shown by this
+particular candidate.) Use at most 4 sentences.\\
+\answerlong{Answers will vary. Potential solutions include the following:
+1. The candidate provided inline comments explaining some of their code.
+2. The candidate asked relevant questions regarding code functionality.
+3. The candidate has consistent indentation.
+4. The candidate used a descriptive variable name.}
+
+\item \pts{4} Support or refute the claim that the candidate's implementation of \lstinline{isPalindrome()} is functionally correct. Use
+  at most 4 sentences.\\
+  \answerlong{Refute. The candidate's implementation of isPalindrome() is not functionally correct. The candidate missed a base
+case regarding x being a negative number. Negative integers would not count as a palindrome. {-313} reversed is {313-}.}
+    
+    \newpage
+    
+    \textbf{V. Extra Credit}. Questions in this section do not count towards the denominator of the exam score.
 
     \newpage
 
@@ -351,6 +405,29 @@ To get credit for this question, you must:
     \newpage
 
     \textbf{Document B:}
+
+    \begin{lstlisting}
+// Q: Can integer x be in range [0-9]? A: Yes.
+// Q: Should I account for integer overflow? A: Yes.
+bool isPalindrome(int x) {
+ // a single digit is a palindrome
+ if (x < 10) {
+   return true;
+ }
+ // if x's last digit is 0, then its first digit must be 0 in order
+ // to be a palindrome. In this case, only 0 can be a palindrome.
+ if (x % 10 == 0 && x != 0) {
+   return false;
+ }
+ // revert the last half of x for comparison against first half
+ int revertedNumber = 0;
+ while(x > revertedNumber) {
+   revertedNumber = revertedNumber * 10 + x % 10;
+   x /= 10;
+ }
+ return x == revertedNumber || x == revertedNumber / 10;
+}
+\end{lstlisting}
     
 %% \item What is the value of each expression using the provided
 %%   variables. Place a decimal point in your answer to indicate a double
