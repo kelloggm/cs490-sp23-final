@@ -37,9 +37,9 @@
 \newcommand{\answervvshort}[1]{\ifkey\color{red}\underline{\textbf{#1}}\color{black}\else\underline{\hspace{0.5in}}\fi\xspace}
 \newcommand{\answerlong}[1]{\ifkey\color{red}\textbf{#1}\color{black}\else\vspace{0.5in}\fi\xspace}
 
-\newcommand{\vshortpts}{24}
-\newcommand{\shortpts}{40}
-\newcommand{\dbqpts}{30}
+\newcommand{\vshortpts}{27}
+\newcommand{\shortpts}{39}
+\newcommand{\dbqpts}{28}
 
 % Commands for points
 \newtotcounter{points}
@@ -513,112 +513,110 @@ def f(a, b, c) {
     \newpage
     \textbf{IV. Document-based Questions (\dbqpts pts).} All questions in this section refer to a documents \textbf{A-B}.
     These documents appear at the end of the exam (I recommend that you tear them out and refer to them as you answer the questions).
-
-    Questions on this page concern \textbf{Document A}.
     
-    \item \pts{2} What kind of document is \textbf{Document A}? \\ \answershort{postmortem}
+%%     \item \pts{2} What kind of document is \textbf{Document A}? \\ \answershort{postmortem}
 
-    \item \pts{3} What was the root cause of the outage? Answer in the form of a quote
-      from the document.\\ \answerlong{``one of the inputs to the command was entered incorrectly''}
+%%     \item \pts{3} What was the root cause of the outage? Answer in the form of a quote
+%%       from the document.\\ \answerlong{``one of the inputs to the command was entered incorrectly''}
 
-    \item \pts{3} Does the document identify who was responsible for the outage? If so, give a quote
-      from the document identifying that the responsible party. If not, give a one-sentence explanation
-      for why not.\\
-      \answerlong{The document does not identify who was responsible, because this is a blameless postmortem:
-        it blames the system, rather than the individual. (Any answer with ``blameless'' or a synonym will probably be accepted.)}
+%%     \item \pts{3} Does the document identify who was responsible for the outage? If so, give a quote
+%%       from the document identifying that the responsible party. If not, give a one-sentence explanation
+%%       for why not.\\
+%%       \answerlong{The document does not identify who was responsible, because this is a blameless postmortem:
+%%         it blames the system, rather than the individual. (Any answer with ``blameless'' or a synonym will probably be accepted.)}
 
-    \item \pts{3} The root cause of the incident only impacted a single service (S3 itself). Why was the ``blast radius''
-      of the incident (i.e., the number of impacted customers) so large?\\
-      \answerlong{Other services relied on S3, so a cascading failure caused them to fail, as well.}
+%%     \item \pts{3} The root cause of the incident only impacted a single service (S3 itself). Why was the ``blast radius''
+%%       of the incident (i.e., the number of impacted customers) so large?\\
+%%       \answerlong{Other services relied on S3, so a cascading failure caused them to fail, as well.}
       
-    \item \pts{3} Describe one change to the tools used to remove capacity that the S3 team could adopt to prevent or mitigate
-      a similar outage in the future. \\
-      \answerlong{Either of the following two answers, which S3 itself gives in the full postmortem, is acceptable. Other
-        sensible answers may also get credit or partial credit. 1) modify the tool to remove capacity more slowly, or
-        2) add safeguards to prevent capacity from being removed when it will take any subsystem below its minimum required capacity level}
+%%     \item \pts{3} Describe one change to the tools used to remove capacity that the S3 team could adopt to prevent or mitigate
+%%       a similar outage in the future. \\
+%%       \answerlong{Either of the following two answers, which S3 itself gives in the full postmortem, is acceptable. Other
+%%         sensible answers may also get credit or partial credit. 1) modify the tool to remove capacity more slowly, or
+%%         2) add safeguards to prevent capacity from being removed when it will take any subsystem below its minimum required capacity level}
 
-    \item \pts{3} Describe another distinct change to the tools used to remove capacity that the S3 team could adopt to prevent
-      or mitiage a similar outage in the future. \\
-      \answerlong{See the previous question.}
+%%     \item \pts{3} Describe another distinct change to the tools used to remove capacity that the S3 team could adopt to prevent
+%%       or mitiage a similar outage in the future. \\
+%%       \answerlong{See the previous question.}
       
+%%     \newpage
+
+%%     Questions on this page refer to \textbf{Document B}, which is a candidate's response to you,
+%%     the interviewer, presenting them with the following technical challenge:
+
+%%     \emph{
+%%       ``Write isPalindrome(), a function that
+%%       returns true if parameter x is a palindrome integer. Note that an integer, like 12321, is a palindrome if it reads the same
+%%       forwards and backwards.''
+%%     }
+      
+%%     \textbf{Document B} also includes two questions that the candidate asked you (and your answers) on its first two lines.
+
+%%   \item \label{palindrome:id} \pts{2} Identify two test inputs where the provided \lstinline{isPalidrome()} implementation returns \lstinline{false}.\\
+%%     \answerlong{Answers will vary. Student solutions must not be a palindrome. {{123}}, {{10}} are potential answers that return
+%%       false.}
+
+%%   \item \pts{3} Your answers to question \ref{palindrome:id} could be which of the following kinds of tests (circle all that apply):
+%%     \\ \correct{A}\hspace{0.2in}unit tests
+%%     \\ \textbf{B}\hspace{0.2in} integration tests
+%%     \\ \textbf{C}\hspace{0.2in} fuzz tests
+%%     \\ \correct{D}\hspace{0.2in}partition tests
+
+%%   \item \pts{4}  Identify four things that the candidate did well. (In other words, identify four properties that a company might
+%% desire in a software engineer that could potentially be shown by a candidate taking the interview and that were shown by this
+%% particular candidate.) Use at most 4 sentences.\\
+%% \answerlong{Answers will vary. Potential solutions include the following:
+%% 1. The candidate provided inline comments explaining some of their code.
+%% 2. The candidate asked relevant questions regarding code functionality.
+%% 3. The candidate has consistent indentation.
+%% 4. The candidate used a descriptive variable name.}
+
+%% \item \pts{4} \label{lastQuestion} Support or refute the claim that the candidate's implementation of \lstinline{isPalindrome()} is functionally correct. Use
+%%   at most 4 sentences.\\
+%%   \answerlong{Refute. The candidate's implementation of isPalindrome() is not functionally correct. The candidate missed a base
+%% case regarding x being a negative number. Negative integers would not count as a palindrome. {-313} reversed is {313-}.}
+    
+%%     \newpage
+
+    Questions on this page refer to \textbf{Document A}.
+    Assume that the only statements we are interested in are \lstinline{STATEMENT 1} through \lstinline{STATEMENT 4}.
+
+  \item \label{sl1} \pts{2} Write a test suite for \lstinline{foo} with 50\% statement coverage. Express your answer as a list of tuples, e.g., ``(x = \#, y = \#, z = \#), (x = \#, y = \#, z = \#), etc.'', where each ``\#'' is a specific integer. \\
+  \answerlong{(x = 6, y = 0, z = 3)}
+    
+  \item \pts{2} Is it possible to achieve 100\% statement coverage on this method? If so, provide a test suite that has 100\% statement coverage. If not, why not? \\
+    \answerlong{It is not possible, because STATEMENT 2 is unreachable.}
+
+  \item \label{el1} Consider the mutation operator ``< to <=''.
+    \begin{enumerate}
+    \item \pts{2} How many first-order (``mutated only once'') mutants can be produced by applying this mutation operator
+    to \lstinline$foo$?\\ \answervshort{2}
+    \item \pts{2} What is the mutation score of a test suite containing only the following test input (assume that executing a different statement causes the mutant to be killed):
+    (x = 5, y = 2, z = 5)?\\ \answershort{0\%}
+    \item \pts{3} Is it possible to change one of x, y, or z in the test input in the previous part of the question to improve the mutation score?
+    If so, state which of x, y, and z to change, what its new value should be, and what the new mutation score is. If not, explain
+    why not. \\
+    \answerlong{z = 6 changes the mutation score to 50\%}
+    \item \pts{3} Is it possible to change one of x, y, or z in the test input in the previous part of the question to improve the mutation score again?
+    If so, state which of x, y, and z to change, what its new value should be, and what the new mutation score is. If not, explain
+    why not. \\
+    \answerlong{It is not, because the second mutant is an equivalent mutant.}
+    \end{enumerate}
+
     \newpage
 
-    Questions on this page refer to \textbf{Document B}, which is a candidate's response to you,
-    the interviewer, presenting them with the following technical challenge:
+    Questions on this page refer to \textbf{Document B}.
 
-    \emph{
-      ``Write isPalindrome(), a function that
-      returns true if parameter x is a palindrome integer. Note that an integer, like 12321, is a palindrome if it reads the same
-      forwards and backwards.''
-    }
-      
-    \textbf{Document B} also includes two questions that the candidate asked you (and your answers) on its first two lines.
+    Suppose that you are a software engineer at \lstinline{codewith.us}, a non-profit that provides computer science education
+    services to K-12 students via an online coding platform. Your boss sends you the email in \textbf{Document B}.
 
-  \item \label{palindrome:id} \pts{2} Identify two test inputs where the provided \lstinline{isPalidrome()} implementation returns \lstinline{false}.\\
-    \answerlong{Answers will vary. Student solutions must not be a palindrome. {{123}}, {{10}} are potential answers that return
-      false.}
+  \item \label{lastQuestion} \pts{14} Write a response to your boss. Your response must either provide a reasonable, well-justified plan
+    for how you will implement the proposed feature (including task sizing and at least research, implementation, and testing tasks)
+    or a well-reasoned justification for why the proposed feature is not feasible.
 
-  \item \pts{3} Your answers to question \ref{palindrome:id} could be which of the following kinds of tests (circle all that apply):
-    \\ \correct{A}\hspace{0.2in}unit tests
-    \\ \textbf{B}\hspace{0.2in} integration tests
-    \\ \textbf{C}\hspace{0.2in} fuzz tests
-    \\ \correct{D}\hspace{0.2in}partition tests
-
-  \item \pts{4}  Identify four things that the candidate did well. (In other words, identify four properties that a company might
-desire in a software engineer that could potentially be shown by a candidate taking the interview and that were shown by this
-particular candidate.) Use at most 4 sentences.\\
-\answerlong{Answers will vary. Potential solutions include the following:
-1. The candidate provided inline comments explaining some of their code.
-2. The candidate asked relevant questions regarding code functionality.
-3. The candidate has consistent indentation.
-4. The candidate used a descriptive variable name.}
-
-\item \pts{4} \label{lastQuestion} Support or refute the claim that the candidate's implementation of \lstinline{isPalindrome()} is functionally correct. Use
-  at most 4 sentences.\\
-  \answerlong{Refute. The candidate's implementation of isPalindrome() is not functionally correct. The candidate missed a base
-case regarding x being a negative number. Negative integers would not count as a palindrome. {-313} reversed is {313-}.}
-    
-%%     \newpage
-
-%%     Questions on this page refer to \textbf{Document C}.
-%%     Assume that the only statements we are interested in are \lstinline{STATEMENT 1} through \lstinline{STATEMENT 4}.
-
-%%   \item \label{sl1} \pts{2} Write a test suite for \lstinline{foo} with 50\% statement coverage. Express your answer as a list of tuples, e.g., ``(x = \#, y = \#, z = \#), (x = \#, y = \#, z = \#), etc.'', where each ``\#'' is a specific integer. \\
-%%   \answerlong{(x = 6, y = 0, z = 3)}
-    
-%%   \item \pts{2} Is it possible to achieve 100\% statement coverage on this method? If so, provide a test suite that has 100\% statement coverage. If not, why not? \\
-%%     \answerlong{It is not possible, because STATEMENT 2 is unreachable.}
-
-%%   \item \label{el1} Consider the mutation operator ``< to <=''.
-%%     \begin{enumerate}
-%%     \item \pts{2} How many first-order (``mutated only once'') mutants can be produced by applying this mutation operator
-%%     to \lstinline$foo$?\\ \answervshort{2}
-%%     \item \pts{3} What is the mutation score of a test suite containing only the following test input (assume that executing a different statement causes the mutant to be killed):
-%%     (x = 5, y = 2, z = 5)?\\ \answershort{0\%}
-%%     \item \pts{3} Is it possible to change one of x, y, or z in the test input in the previous part of the question to improve the mutation score?
-%%     If so, state which of x, y, and z to change, what its new value should be, and what the new mutation score is. If not, explain
-%%     why not. \\
-%%     \answerlong{z = 6 changes the mutation score to 50\%}
-%%     \item \pts{3} Is it possible to change one of x, y, or z in the test input in the previous part of the question to improve the mutation score again?
-%%     If so, state which of x, y, and z to change, what its new value should be, and what the new mutation score is. If not, explain
-%%     why not. \\
-%%     \answerlong{It is not, because the second mutant is an equivalent mutant.}
-%%     \end{enumerate}
-
-%%     \newpage
-
-%%     Questions on this page refer to \textbf{Document D}.
-
-%%     Suppose that you are a software engineer at \lstinline{codewith.us}, a non-profit that provides computer science education
-%%     services to K-12 students via an online coding platform. Your boss sends you the email in \textbf{Document D}.
-
-%%   \item \pts{15} Write a response to your boss. Your response must either provide a reasonable, well-justified plan
-%%     for how you will implement the proposed feature (including task sizing and at least research, implementation, and testing tasks)
-%%     or a well-reasoned justification for why the proposed feature is not feasible.
-
-%%     \answerlong{The proposed feature is an instance of the halting problem, and Mr. Rice's insistence that
-%%       you get the correct answer 100\% of the time means that it is impossible to implement the feature as described.
-%%     Correct answers must be phrased as an email, and use a polite but firm tone.}
+    \answerlong{The proposed feature is an instance of the halting problem, and Mr. Rice's insistence that
+      you get the correct answer 100\% of the time means that it is impossible to implement the feature as described.
+    Correct answers must be phrased as an email, and use a polite but firm tone.}
 
     \newpage
     
@@ -641,94 +639,94 @@ case regarding x being a negative number. Negative integers would not count as a
     (Note: answering this question with a particular reading means you cannot use that reading for your ``Response \#2'', due on May 2.)
     \answerlong{Answers vary.}
     
-  \item \ecpts{1} Name a recent ``hot topic'' in Software Engineering research and give a one-sentence description of that work.
+  \item \ecpts{1} Name a recent ``hot topic'' in Software Engineering research and give a one-sentence description of that topic.
     \answerlong{Expected answers are the topics covered in class on 20 April.}
     
     \newpage
 
     \textbf{Document A:}
     
-      We’d like to give you some additional information about the service disruption that occurred in the Northern Virginia (US-EAST-1) Region on the morning of February 28th, 2017. The Amazon Simple Storage Service (S3) team was debugging an issue causing the S3 billing system to progress more slowly than expected. At 9:37AM PST, an authorized S3 team member using an established playbook executed a command which was intended to remove a small number of servers for one of the S3 subsystems that is used by the S3 billing process. Unfortunately, one of the inputs to the command was entered incorrectly and a larger set of servers was removed than intended. The servers that were inadvertently removed supported two other S3 subsystems.  One of these subsystems, the index subsystem, manages the metadata and location information of all S3 objects in the region. This subsystem is necessary to serve all GET, LIST, PUT, and DELETE requests. The second subsystem, the placement subsystem, manages allocation of new storage and requires the index subsystem to be functioning properly to correctly operate. The placement subsystem is used during PUT requests to allocate storage for new objects. Removing a significant portion of the capacity caused each of these systems to require a full restart. While these subsystems were being restarted, S3 was unable to service requests. Other AWS services in the US-EAST-1 Region that rely on S3 for storage, including the S3 console, Amazon Elastic Compute Cloud (EC2) new instance launches, Amazon Elastic Block Store (EBS) volumes (when data was needed from a S3 snapshot), and AWS Lambda were also impacted while the S3 APIs were unavailable.
+%%       We’d like to give you some additional information about the service disruption that occurred in the Northern Virginia (US-EAST-1) Region on the morning of February 28th, 2017. The Amazon Simple Storage Service (S3) team was debugging an issue causing the S3 billing system to progress more slowly than expected. At 9:37AM PST, an authorized S3 team member using an established playbook executed a command which was intended to remove a small number of servers for one of the S3 subsystems that is used by the S3 billing process. Unfortunately, one of the inputs to the command was entered incorrectly and a larger set of servers was removed than intended. The servers that were inadvertently removed supported two other S3 subsystems.  One of these subsystems, the index subsystem, manages the metadata and location information of all S3 objects in the region. This subsystem is necessary to serve all GET, LIST, PUT, and DELETE requests. The second subsystem, the placement subsystem, manages allocation of new storage and requires the index subsystem to be functioning properly to correctly operate. The placement subsystem is used during PUT requests to allocate storage for new objects. Removing a significant portion of the capacity caused each of these systems to require a full restart. While these subsystems were being restarted, S3 was unable to service requests. Other AWS services in the US-EAST-1 Region that rely on S3 for storage, including the S3 console, Amazon Elastic Compute Cloud (EC2) new instance launches, Amazon Elastic Block Store (EBS) volumes (when data was needed from a S3 snapshot), and AWS Lambda were also impacted while the S3 APIs were unavailable.
 
-      S3 subsystems are designed to support the removal or failure of significant capacity with little or no customer impact. We build our systems with the assumption that things will occasionally fail, and we rely on the ability to remove and replace capacity as one of our core operational processes. While this is an operation that we have relied on to maintain our systems since the launch of S3, we have not completely restarted the index subsystem or the placement subsystem in our larger regions for many years. S3 has experienced massive growth over the last several years and the process of restarting these services and running the necessary safety checks to validate the integrity of the metadata took longer than expected. The index subsystem was the first of the two affected subsystems that needed to be restarted. By 12:26PM PST, the index subsystem had activated enough capacity to begin servicing S3 GET, LIST, and DELETE requests. By 1:18PM PST, the index subsystem was fully recovered and GET, LIST, and DELETE APIs were functioning normally.  The S3 PUT API also required the placement subsystem. The placement subsystem began recovery when the index subsystem was functional and finished recovery at 1:54PM PST. At this point, S3 was operating normally. Other AWS services that were impacted by this event began recovering. Some of these services had accumulated a backlog of work during the S3 disruption and required additional time to fully recover.
+%%       S3 subsystems are designed to support the removal or failure of significant capacity with little or no customer impact. We build our systems with the assumption that things will occasionally fail, and we rely on the ability to remove and replace capacity as one of our core operational processes. While this is an operation that we have relied on to maintain our systems since the launch of S3, we have not completely restarted the index subsystem or the placement subsystem in our larger regions for many years. S3 has experienced massive growth over the last several years and the process of restarting these services and running the necessary safety checks to validate the integrity of the metadata took longer than expected. The index subsystem was the first of the two affected subsystems that needed to be restarted. By 12:26PM PST, the index subsystem had activated enough capacity to begin servicing S3 GET, LIST, and DELETE requests. By 1:18PM PST, the index subsystem was fully recovered and GET, LIST, and DELETE APIs were functioning normally.  The S3 PUT API also required the placement subsystem. The placement subsystem began recovery when the index subsystem was functional and finished recovery at 1:54PM PST. At this point, S3 was operating normally. Other AWS services that were impacted by this event began recovering. Some of these services had accumulated a backlog of work during the S3 disruption and required additional time to fully recover.
 
-%      We are making several changes as a result of this operational event. While removal of capacity is a key operational practice, in this instance, the tool used allowed too much capacity to be removed too quickly. We have modified this tool to remove capacity more slowly and added safeguards to prevent capacity from being removed when it will take any subsystem below its minimum required capacity level. This will prevent an incorrect input from triggering a similar event in the future. We are also auditing our other operational tools to ensure we have similar safety checks. We will also make changes to improve the recovery time of key S3 subsystems. We employ multiple techniques to allow our services to recover from any failure quickly. One of the most important involves breaking services into small partitions which we call cells. By factoring services into cells, engineering teams can assess and thoroughly test recovery processes of even the largest service or subsystem. As S3 has scaled, the team has done considerable work to refactor parts of the service into smaller cells to reduce blast radius and improve recovery. During this event, the recovery time of the index subsystem still took longer than we expected. The S3 team had planned further partitioning of the index subsystem later this year. We are reprioritizing that work to begin immediately.
+%% %      We are making several changes as a result of this operational event. While removal of capacity is a key operational practice, in this instance, the tool used allowed too much capacity to be removed too quickly. We have modified this tool to remove capacity more slowly and added safeguards to prevent capacity from being removed when it will take any subsystem below its minimum required capacity level. This will prevent an incorrect input from triggering a similar event in the future. We are also auditing our other operational tools to ensure we have similar safety checks. We will also make changes to improve the recovery time of key S3 subsystems. We employ multiple techniques to allow our services to recover from any failure quickly. One of the most important involves breaking services into small partitions which we call cells. By factoring services into cells, engineering teams can assess and thoroughly test recovery processes of even the largest service or subsystem. As S3 has scaled, the team has done considerable work to refactor parts of the service into smaller cells to reduce blast radius and improve recovery. During this event, the recovery time of the index subsystem still took longer than we expected. The S3 team had planned further partitioning of the index subsystem later this year. We are reprioritizing that work to begin immediately.
 
-      From the beginning of this event until 11:37AM PST, we were unable to update the individual services’ status on the AWS Service Health Dashboard (SHD) because of a dependency the SHD administration console has on Amazon S3. Instead, we used the AWS Twitter feed (@AWSCloud) and SHD banner text to communicate status until we were able to update the individual services’ status on the SHD.  We understand that the SHD provides important visibility to our customers during operational events and we have changed the SHD administration console to run across multiple AWS regions.
+%%       From the beginning of this event until 11:37AM PST, we were unable to update the individual services’ status on the AWS Service Health Dashboard (SHD) because of a dependency the SHD administration console has on Amazon S3. Instead, we used the AWS Twitter feed (@AWSCloud) and SHD banner text to communicate status until we were able to update the individual services’ status on the SHD.  We understand that the SHD provides important visibility to our customers during operational events and we have changed the SHD administration console to run across multiple AWS regions.
 
-      Finally, we want to apologize for the impact this event caused for our customers. While we are proud of our long track record of availability with Amazon S3, we know how critical this service is to our customers, their applications and end users, and their businesses. We will do everything we can to learn from this event and use it to improve our availability even further.~
+%%       Finally, we want to apologize for the impact this event caused for our customers. While we are proud of our long track record of availability with Amazon S3, we know how critical this service is to our customers, their applications and end users, and their businesses. We will do everything we can to learn from this event and use it to improve our availability even further.~
     
-\vspace{0.5in}
-    \textbf{Document B:}
+%% \vspace{0.5in}
+%%     \textbf{Document B:}
 
-    \begin{lstlisting}
-// Q: Can integer x be in range [0-9]? A: Yes.
-// Q: Should I account for integer overflow? A: Yes.
-bool isPalindrome(int x) {
- // a single digit is a palindrome
- if (x < 10) {
-   return true;
- }
- // if x's last digit is 0, then its first digit must be 0 in order
- // to be a palindrome. In this case, only 0 can be a palindrome.
- if (x % 10 == 0 && x != 0) {
-   return false;
- }
- // revert the last half of x for comparison against first half
- int revertedNumber = 0;
- while(x > revertedNumber) {
-   revertedNumber = revertedNumber * 10 + x % 10;
-   x /= 10;
- }
- return x == revertedNumber || x == revertedNumber / 10;
-}
-\end{lstlisting}
+%%     \begin{lstlisting}
+%% // Q: Can integer x be in range [0-9]? A: Yes.
+%% // Q: Should I account for integer overflow? A: Yes.
+%% bool isPalindrome(int x) {
+%%  // a single digit is a palindrome
+%%  if (x < 10) {
+%%    return true;
+%%  }
+%%  // if x's last digit is 0, then its first digit must be 0 in order
+%%  // to be a palindrome. In this case, only 0 can be a palindrome.
+%%  if (x % 10 == 0 && x != 0) {
+%%    return false;
+%%  }
+%%  // revert the last half of x for comparison against first half
+%%  int revertedNumber = 0;
+%%  while(x > revertedNumber) {
+%%    revertedNumber = revertedNumber * 10 + x % 10;
+%%    x /= 10;
+%%  }
+%%  return x == revertedNumber || x == revertedNumber / 10;
+%% }
+%% \end{lstlisting}
 %    \newpage
 %    \newpage
 %%     \textbf{Document C:}
-%%     \begin{lstlisting}
-%%     void foo(int x, int y, int z) {
-%%       if (x > 5) {
-%%         // STATEMENT 1
-%%       else if (y < 4 && x > 7) {
-%%         // STATEMENT 2
-%%       }
-%%       if (z < 6) {
-%%         // STATEMENT 3
-%%       } else {
-%%         // STATEMENT 4
-%%       }
-%%     }
-%%     \end{lstlisting}
+    \begin{lstlisting}
+    void foo(int x, int y, int z) {
+      if (x > 5) {
+        // STATEMENT 1
+      else if (y < 4 && x > 7) {
+        // STATEMENT 2
+      }
+      if (z < 6) {
+        // STATEMENT 3
+      } else {
+        // STATEMENT 4
+      }
+    }
+    \end{lstlisting}
 
-%% \vspace{0.5in}
+\vspace{0.5in}
     
-%%     \textbf{Document D:}
+    \textbf{Document B:}
 
-%%     [Your Name],
+    [Your Name],
 
-%%     I met with the executive board today, and they're onboard with a new feature to help our students avoid
-%%     writing programs that run forever by warning them before they start a program whether it will loop forever.
-%%     I'd like you to design the feature and then write me up an estimate for how much time it'll take you to
-%%     implement. Here are some requirements I gathered from the board:
-%%     \begin{itemize}
-%%     \item All the board members agreed that the warning message needs to be a bright red popup that appears
-%%       when the student is about to run a program that'll run forever.
-%%     \item Ms. Wheat (she used to be a teacher, remember, so she really gets the students!) insisted that we
-%%       use only simple words in the warning message. I think her suggestion was ``Watch out! This might last forever!'', but
-%%       we can iterate on that.
-%%     \item Mr. Rice (who, as you might remember, is our biggest donor - so we have to keep him happy) insisted that
-%%       if we're going to spend technical resources on this and not on his pet project of making all of our buttons larger,
-%%       we really have to get it right every time.
-%%     \item All the board members agreed that you should use a font that really pops out and makes the kids rethink what
-%%       they were about to do. They all still think it's the 90s, though, so we can probably not worry about this too much
-%%       as long as the design you pick gels with the rest of the site.
-%%     \end{itemize}
+    I met with the executive board today, and they're onboard with a new feature to help our students avoid
+    writing programs that run forever by warning them before they start a program whether it will loop forever.
+    I'd like you to design the feature and then write me up an estimate for how much time it'll take you to
+    implement. Here are some requirements I gathered from the board:
+    \begin{itemize}
+    \item All the board members agreed that the warning message needs to be a bright red popup that appears
+      when the student is about to run a program that'll run forever.
+    \item Ms. Wheat (she used to be a teacher, remember, so she really gets the students!) insisted that we
+      use only simple words in the warning message. I think her suggestion was ``Watch out! This might last forever!'', but
+      we can iterate on that.
+    \item Mr. Rice (who, as you might remember, is our biggest donor - so we have to keep him happy) insisted that
+      if we're going to spend technical resources on this and not on his pet project of making all of our buttons larger,
+      we really have to get it right every time.
+    \item All the board members agreed that you should use a font that really pops out and makes the kids rethink what
+      they were about to do. They all still think it's the 90s, though, so we can probably not worry about this too much
+      as long as the design you pick gels with the rest of the site.
+    \end{itemize}
 
-%%     Get back to me ASAP with that estimate - I want you working on this next sprint.
+    Get back to me ASAP with that estimate - I want you working on this next sprint.
 
-%%     Thanks!
-%%     [Your Boss]
+    Thanks!
+    [Your Boss]
     
     
 %% \item What is the value of each expression using the provided
