@@ -37,8 +37,8 @@
 \newcommand{\answervvshort}[1]{\ifkey\color{red}\underline{\textbf{#1}}\color{black}\else\underline{\hspace{0.5in}}\fi\xspace}
 \newcommand{\answerlong}[1]{\ifkey\color{red}\textbf{#1}\color{black}\else\vspace{0.5in}\fi\xspace}
 
-\newcommand{\vshortpts}{27}
-\newcommand{\shortpts}{39}
+\newcommand{\vshortpts}{29}
+\newcommand{\shortpts}{37}
 \newcommand{\dbqpts}{28}
 
 % Commands for points
@@ -281,7 +281,7 @@ Contents (blanks for graders only):
 %%      gather around a whiteboard and draw a diagram of the new service's \answershort{architecture}
 
      \newpage
-   \item \pts{3} In a model-view-controller architecture, how many of each of the following should there be?
+   \item \pts{3} In a single component with a model-view-controller architecture, how many of each of the following should there be?
      \\ Models: \hspace{0.75in} \textbf{0-1} \hspace{0.5in} \correct{exactly 1} \hspace{0.5in} \textbf{1 or more} \hspace{0.5in} \textbf{at least 2}
      \\ Views: \hspace{0.82in} \textbf{0-1} \hspace{0.5in} \textbf{exactly 1} \hspace{0.5in} \correct{1 or more} \hspace{0.5in} \textbf{at least 2}
      \\ Controllers: \hspace{0.51in} \textbf{0-1} \hspace{0.5in} \textbf{exactly 1} \hspace{0.5in} \correct{1 or more} \hspace{0.5in} \textbf{at least 2}
@@ -305,6 +305,15 @@ Contents (blanks for graders only):
      A user reports that a particular program doesn't compile correctly. You add that program to your test suite,
      and then you start fixing the problem in your compiler. You are practicing
      \\ \answershort{test-driven development}
+
+\item Consider a program with seven sequential if statements that accepts seven boolean
+inputs. Assuming each condition evaluates a single unique input, what is the minimum
+number of test cases required to achieve:
+\begin{enumerate}
+\item \pts{1} 100\% branch coverage? \answershort{2: one all false, one all true}
+\item \pts{1} 100\% condition coverage? \answershort{14 = 2*7}
+\end{enumerate}
+
      
   \newpage
 
@@ -407,17 +416,22 @@ Contents (blanks for graders only):
     \newpage
 
   \item For each of the following bugs, describe a situation in which the bug would be \emph{high severity}
-    and describe another situation in which the bug would be \emph{low severity}.
+    and describe another, distinct situation in which the bug would be \emph{low severity}.
     \begin{enumerate}
-    \item \pts{2} A programmer-managed resource, such as a socket or database connection, is not closed before
-      the last pointer to it goes out of scope.\\
-      \answerlong{High severity: a long-running program, such as a webserver, which may eventually run out of resources.
-        Low severity: a short-running program, such as one that sends a single ping and then exits: the resource will
-        be freed when the program ends, anyway. Other examples are possible.}
-    \item \pts{2} An integer value is stored in the wrong units (e.g., feet vs meters, seconds vs hours, etc.).\\
-      \answerlong{High severity: Mars polar orbiter crash. Low severity: the integer value is part of a game
+    \item A programmer-managed resource, such as a socket or database connection, is not closed before
+      the last pointer to it goes out of scope.
+      \begin{enumerate}
+        \item \pts{1} High severity: \answerlong{A long-running program, such as a webserver, which may eventually run out of resources.}
+        \item \pts{1} Low severity: \answerlong{a short-running program, such as one that sends a single ping and then exits: the resource will
+          be freed when the program ends, anyway. Other examples are possible.}
+      \end{enumerate}
+    \item An integer value is stored in the wrong units (e.g., feet vs meters, seconds vs hours, etc.).
+      \begin{enumerate}
+      \item \pts{1} High severity: \answerlong{Mars polar orbiter crash.}
+        \item \pts{1} Low severity: \answerlong{The integer value is part of a game
         and is only displayed to the user: e.g., it doesn't matter if an imaginary car's speed is in m/s or mph.
         Other answers are possible.}
+          \end{enumerate}
       \end{enumerate}
 
     \item Consider the following pairs of tools, techniques, or processes. For each pair, give a class of defects or a
@@ -456,13 +470,6 @@ engineering effort and/or improve software engineering outcomes) and explain why
 %%       sorting a list ought to be (O(nlogn)). Other well-reasoned answers are also possible.}
 %%     \end{enumerate}
 
-\item Consider a program with six sequential if statements that accepts six boolean
-inputs. Assuming each condition evaluates a single unique input, what is the minimum
-number of test cases required to achieve:
-\begin{enumerate}
-\item \pts{1} 100\% branch coverage? \answershort{2: one all false, one all true}
-\item \pts{1} 100\% condition coverage? \answershort{12 = 2*6}
-\end{enumerate}
 \newpage
 
 \item \pts{7} Consider a static analysis that computes, for every program point, which variables contain a value that has
@@ -622,11 +629,12 @@ def f(a, b, c) {
     
     \textbf{V. Extra Credit}. Questions in this section do not count towards the denominator of the exam score.
 
-  \item \ecpts{1} TODO: this question will be about a specific point made by one of our panelists
-    \answerlong{TODO}
+  \item \ecpts{1} Why did panelist Rupali Vohra (Convoy) say that her undergraduate operating systems class
+    was particularly useful to her in her software engineering career?
+    \answerlong{Any answer involving the common-ness of distributed systems or the similarity between multithreading and distributed systems is acceptable.}
 
-  \item \ecpts{1} TODO: this question will be about a different, specific point made by one of our panelists
-    \answerlong{TODO}
+  \item \ecpts{1} The ``\answershort{campsite}'' approach to managing technical debt, according to our panelists, involves leaving any code you modify
+    in less technical debt than your found it in.
   
   \item \ecpts{1} \label{optional1} Name an optional reading assignment that you read but will not and have not used as a response to the ``Optional Reading Response \#1''
     or ``Optional Reading Response \#2'' assignments on Canvas, and then give a one-sentence description of something you learned from that reading.
@@ -640,7 +648,11 @@ def f(a, b, c) {
     \answerlong{Answers vary.}
     
   \item \ecpts{1} Name a recent ``hot topic'' in Software Engineering research and give a one-sentence description of that topic.
-    \answerlong{Expected answers are the topics covered in class on 20 April.}
+    \answerlong{Expected answers are the topics covered in class on 20 April, but any topic on which there were 3 or more papers at FSE, ICSE, ISSTA, or ASE in the past 2 years
+      is acceptable.}
+
+  \item \ecpts{1} Would you be willing to serve on an engineer panel in the future (i.e., once you have a job)? If so, leave an email address that you expect to still monitor
+    after graduating in this space. If not, write ``no'' to receive full credit.\answerlong{``no'' or any email address receives full credit.}
     
     \newpage
 
