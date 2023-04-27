@@ -28,8 +28,8 @@
 
 % Commands for answer key
 \newif\ifkey
-%\keytrue
-\keyfalse
+\keytrue
+%\keyfalse
 
 \newcommand{\correct}[1]{\ifkey\color{red}\textbf{#1}\color{black}\else\textbf{#1}\fi\xspace}
 \newcommand{\answershort}[1]{\ifkey\color{red}\underline{\textbf{#1}}\color{black}\else\underline{\hspace{3in}}\fi\xspace}
@@ -121,8 +121,8 @@ Contents (blanks for graders only):
 \textbf{II. Very Short Answer:} & \answervshort{\vshortpts} / \vshortpts \\
 \textbf{III. Short Answer:} & \answervshort{\shortpts} / \shortpts \\
 \textbf{IV. DBQs:} & \answervshort{\dbqpts} / \dbqpts \\
-\textbf{V. Extra Credit:} & \answervshort{5} / 0 \\
-\textbf{Total:} & \answervshort{105} / 100 \\
+\textbf{V. Extra Credit:} & \answervshort{6} / 0 \\
+\textbf{Total:} & \answervshort{106} / 100 \\
 \end{tabular}
 
 \newpage
@@ -369,7 +369,7 @@ number of test cases required to achieve:
     \item \pts{3} In an effort to reduce the memory footprint of a Java program, we decide to try replacing
       every \lstinline{long} variable with an \lstinline{int}. However, when we do so, our program fails some of its test cases (we suspect due to integer overflow). We want to
       identify which \lstinline{long} variables can be replaced with \lstinline{int} variables such that the program still passes all tests.\\
-      \answerlong{Delta debugging is suitable for this use case. We can define script is_interesting.sh such that it takes a
+      \answerlong{Delta debugging is suitable for this use case. We can define script \lstinline{is_interesting.sh} such that it takes a
         list of occurrences of long and replaces each with an int. The script exits 1 if the code compiles and runs the tests
         successfully, and it exits 0 if the code doesn't compile or fails any tests.}
       \vspace{0.25in}
@@ -377,7 +377,7 @@ number of test cases required to achieve:
       dependencies from our build file: the program is old, and we believe some of the dependencies are no longer used.
       However, when we do so, our program fails to compile (we suspect because some of the dependencies we removed are
       still in use). We want to identify the minimal subset of dependencies that enables our program to compile.\\
-      \answerlong{Delta debugging is suitable for this use case. We can define script is_interesting.sh such that it takes a list of
+      \answerlong{Delta debugging is suitable for this use case. We can define script \lstinline{is_interesting.sh} such that it takes a list of
         dependencies, removes them from the build file, and then attempts to compile the program. The script exits 1 if the code compiles
         successfully, and 0 if it does not.}
             \vspace{0.25in}
@@ -404,14 +404,8 @@ number of test cases required to achieve:
 
   \item \pts{4}  Write a method accepting one input parameter for which test input generation
     via constraint solving will work better than test input generation at random.\\
-    \answerlong{Answers vary. The key idea is to include a very specific test. For example:\\
-      \begin{lstlisting}
-        int foo(int x) {
-          if (x == 10) return 0;
-          else return 1;
-        }
-      \end{lstlisting}
-    }
+    \answerlong{Answers vary. The key idea is to include a very specific test that only a single
+      input can satisfy, such as \lstinline{if (x == 10): ...}.}
 
     \newpage
 
@@ -458,7 +452,7 @@ engineering effort and/or improve software engineering outcomes) and explain why
 %%   sorts a list of numbers. You both agree that the output of sort must be in descending order.
 %%   The company delivers a program that always returns the empty list. You meet to correct
 %%   this. The company then delivers a program that deterministically tries all permutations
-%%   of the input list until one is found that is sorted. (This is sometimes called “bogosort”.)
+%%   of the input list until one is found that is sorted. (This is sometimes called ''bogosort''.)
 %%   Explain two elements that may have gone wrong during requirements
 %%   elicitation (at any stage).
 %%   \begin{enumerate}
